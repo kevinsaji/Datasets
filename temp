@@ -1,629 +1,113 @@
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torch_geometric.nn import RGCNConv
-from torch_geometric.data import Data
 import pandas as pd
-import numpy as np
-from datetime import datetime, timedelta
-from typing import Dict, List, Tuple, Any
-from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.feature_extraction.text import TfidfVectorizer
-import re
+import torch
+from torch_geometric.data import HeteroData
+from torch_geometric.nn import RGCNConv
+from sklearn.preprocessing import LabelEncoder
 
-def load_csv_data(nodes_csv_path: str, relationships_csv_path: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
-    """
-    Load nodes and relationships from CSV files
-    
-    Args:
-        nodes_csv_path: Path to nodes.csv
-        relationships_csv_path: Path to relationships.csv
-    
-    Returns:
-        Tuple of (nodes_df, relationships_df)
-    """
-    nodes_df = pd.read_csv(nodes_csv_path)
-    relationships_df = pd.read_csv(relationships_csv_path)
-    
-    # Ensure required columns exist
-    required_node_cols = ['Name', 'Label', 'Msg', 'Time', 'Level', 'EventId', 'Service']
-    required_rel_cols = ['StartNode', 'EndNode', 'Edge']
-    
-    assert all(col in nodes_df.columns for col in required_node_cols), f"Missing node columns: {required_node_cols}"
-    assert all(col in relationships_df.columns for col in required_rel_cols), f"Missing relationship columns: {required_rel_cols}"
-    
-    print(f"Loaded {len(nodes_df)} nodes and {len(relationships_df)} relationships")
-    return nodes_df, relationships_df
+# Load your data
+nodes_df = pd.read_csv("nodes.csv")  # columns: Name, Label, Msg, Time, Level, EventId, Service
+edges_df = pd.read_csv("relationships.csv")  # columns: StartNode, EndNode, Edge
 
-def preprocess_node_data(nodes_df: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, Any]]:
-    """
-    Preprocess node data and create encoders
-    
-    Args:
-        nodes_df: DataFrame with node data
-        
-    Returns:
-        Tuple of (processed_nodes_df, encoders_dict)
-    """
-    processed_df = nodes_df.copy()
-    encoders = {}
-    
-    # Parse datetime
-    processed_df['Time'] = pd.to_datetime(processed_df['Time'])
-    
-    # Create time-based features
-    processed_df['hour'] = processed_df['Time'].dt.hour
-    processed_df['day_of_week'] = processed_df['Time'].dt.dayofweek
-    processed_df['day_of_month'] = processed_df['Time'].dt.day
-    processed_df['month'] = processed_df['Time'].dt.month
-    
-    # Encode categorical variables
-    categorical_cols = ['Label', 'Level', 'Service']
-    for col in categorical_cols:
-        encoders[col] = LabelEncoder()
-        processed_df[f'{col}_encoded'] = encoders[col].fit_transform(processed_df[col].astype(str))
-    
-    # Create message features using TF-IDF
-    tfidf = TfidfVectorizer(max_features=50, stop_words='english', ngram_range=(1, 2))
-    msg_features = tfidf.fit_transform(processed_df['Msg'].fillna('').astype(str))
-    encoders['tfidf'] = tfidf
-    
-    # Convert TF-IDF to dense array and add to dataframe
-    msg_dense = msg_features.toarray()
-    msg_feature_names = [f'msg_tfidf_{i}' for i in range(msg_dense.shape[1])]
-    msg_df = pd.DataFrame(msg_dense, columns=msg_feature_names, index=processed_df.index)
-    processed_df = pd.concat([processed_df, msg_df], axis=1)
-    
-    # Scale numerical features
-    numerical_cols = ['EventId', 'hour', 'day_of_week', 'day_of_month', 'month']
-    scaler = StandardScaler()
-    processed_df[numerical_cols] = scaler.fit_transform(processed_df[numerical_cols])
-    encoders['scaler'] = scaler
-    
-    return processed_df, encoders
+# Encode node features
+node_encoder = LabelEncoder()
+nodes_df['node_id'] = node_encoder.fit_transform(nodes_df['Name'])
 
-def create_node_mapping(nodes_df: pd.DataFrame) -> Dict[str, int]:
-    """
-    Create mapping from node names to sequential indices
-    
-    Args:
-        nodes_df: DataFrame with node data
-        
-    Returns:
-        Dictionary mapping node names to indices
-    """
-    node_mapping = {}
-    for idx, node_name in enumerate(nodes_df['Name']):
-        node_mapping[node_name] = idx
-    
-    return node_mapping
+# Build feature vectors
+level_encoder = LabelEncoder()
+service_encoder = LabelEncoder()
+eventid_encoder = LabelEncoder()
 
-def create_edge_mapping(relationships_df: pd.DataFrame) -> Dict[str, int]:
-    """
-    Create mapping from edge types to sequential indices
-    
-    Args:
-        relationships_df: DataFrame with relationship data
-        
-    Returns:
-        Dictionary mapping edge types to indices
-    """
-    edge_types = relationships_df['Edge'].unique()
-    edge_mapping = {edge_type: idx for idx, edge_type in enumerate(edge_types)}
-    
-    print(f"Found {len(edge_types)} edge types: {list(edge_types)}")
-    return edge_mapping
+nodes_df['LevelEnc'] = level_encoder.fit_transform(nodes_df['Level'].fillna("Unknown"))
+nodes_df['ServiceEnc'] = service_encoder.fit_transform(nodes_df['Service'].fillna("Unknown"))
+nodes_df['EventIdEnc'] = eventid_encoder.fit_transform(nodes_df['EventId'].fillna("Unknown"))
 
-def create_node_features(processed_nodes_df: pd.DataFrame, encoders: Dict[str, Any]) -> np.ndarray:
-    """
-    Create node feature matrix
-    
-    Args:
-        processed_nodes_df: Preprocessed node DataFrame
-        encoders: Dictionary of encoders
-        
-    Returns:
-        Node feature matrix
-    """
-    # Select features for the model
-    feature_cols = []
-    
-    # Categorical encoded features
-    feature_cols.extend(['Label_encoded', 'Level_encoded', 'Service_encoded'])
-    
-    # Numerical features
-    feature_cols.extend(['EventId', 'hour', 'day_of_week', 'day_of_month', 'month'])
-    
-    # TF-IDF features
-    tfidf_cols = [col for col in processed_nodes_df.columns if col.startswith('msg_tfidf_')]
-    feature_cols.extend(tfidf_cols)
-    
-    # Create feature matrix
-    features = processed_nodes_df[feature_cols].values
-    
-    print(f"Created node features with shape: {features.shape}")
-    return features.astype(np.float32)
+# Create feature tensor
+features = torch.tensor(
+    nodes_df[['LevelEnc', 'ServiceEnc', 'EventIdEnc']].values,
+    dtype=torch.long
+)
 
-def create_edge_data(relationships_df: pd.DataFrame, node_mapping: Dict[str, int], edge_mapping: Dict[str, int]) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    Create edge indices and edge types
-    
-    Args:
-        relationships_df: DataFrame with relationship data
-        node_mapping: Mapping from node names to indices
-        edge_mapping: Mapping from edge types to indices
-        
-    Returns:
-        Tuple of (edge_indices, edge_types)
-    """
-    edge_indices = []
-    edge_types = []
-    
-    for _, row in relationships_df.iterrows():
-        start_node = row['StartNode']
-        end_node = row['EndNode']
-        edge_type = row['Edge']
-        
-        # Skip if nodes not in mapping
-        if start_node not in node_mapping or end_node not in node_mapping:
-            continue
-        
-        start_idx = node_mapping[start_node]
-        end_idx = node_mapping[end_node]
-        edge_type_idx = edge_mapping[edge_type]
-        
-        edge_indices.append([start_idx, end_idx])
-        edge_types.append(edge_type_idx)
-    
-    edge_indices = np.array(edge_indices).T  # Shape: [2, num_edges]
-    edge_types = np.array(edge_types)
-    
-    print(f"Created {len(edge_types)} edges")
-    return edge_indices, edge_types
+# Create HeteroData object
+data = HeteroData()
 
-def create_temporal_features(processed_nodes_df: pd.DataFrame, node_mapping: Dict[str, int], time_window_hours: int = 24) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    Create temporal features for sequence modeling
-    
-    Args:
-        processed_nodes_df: Preprocessed node DataFrame
-        node_mapping: Mapping from node names to indices
-        time_window_hours: Time window for sequence features
-        
-    Returns:
-        Tuple of (temporal_features, sequence_features)
-    """
-    # Sort by time
-    sorted_df = processed_nodes_df.sort_values('Time')
-    
-    temporal_features = []
-    sequence_features = []
-    
-    for _, row in sorted_df.iterrows():
-        # Basic temporal features (normalized)
-        temp_feat = [
-            row['hour'] / 24.0 if 'hour' in row else 0.0,
-            row['day_of_week'] / 7.0 if 'day_of_week' in row else 0.0,
-            row['day_of_month'] / 31.0 if 'day_of_month' in row else 0.0,
-            row['month'] / 12.0 if 'month' in row else 0.0
-        ]
-        temporal_features.append(temp_feat)
-        
-        # Sequence features (logs in time window)
-        current_time = row['Time']
-        window_start = current_time - timedelta(hours=time_window_hours)
-        
-        # Get logs in time window
-        window_mask = (sorted_df['Time'] >= window_start) & (sorted_df['Time'] <= current_time)
-        window_logs = sorted_df[window_mask].tail(10)  # Last 10 logs in window
-        
-        # Create sequence representation
-        seq_feat = []
-        for _, w_row in window_logs.iterrows():
-            seq_feat.append([
-                w_row['hour'] / 24.0 if 'hour' in w_row else 0.0,
-                w_row['Level_encoded'] / 3.0 if 'Level_encoded' in w_row else 0.0,
-                w_row['Service_encoded'] / 10.0 if 'Service_encoded' in w_row else 0.0,
-                w_row['EventId'] if 'EventId' in w_row else 0.0
-            ])
-        
-        # Pad sequence to fixed length
-        while len(seq_feat) < 10:
-            seq_feat.append([0.0, 0.0, 0.0, 0.0])
-        
-        sequence_features.append(seq_feat)
-    
-    temporal_features = np.array(temporal_features, dtype=np.float32)
-    sequence_features = np.array(sequence_features, dtype=np.float32)
-    
-    print(f"Created temporal features: {temporal_features.shape}, sequence features: {sequence_features.shape}")
-    return temporal_features, sequence_features
+# Separate log and param nodes
+log_mask = nodes_df['Label'] == 'Log'
+param_mask = nodes_df['Label'] == 'Param'
 
-def build_rgcn_model(num_node_features: int, num_relations: int, hidden_dim: int = 128, num_layers: int = 3) -> nn.Module:
-    """
-    Build RGCN model
-    
-    Args:
-        num_node_features: Number of input node features
-        num_relations: Number of relation types
-        hidden_dim: Hidden dimension size
-        num_layers: Number of RGCN layers
-        
-    Returns:
-        RGCN model
-    """
-    class LogRGCN(nn.Module):
-        def __init__(self, num_node_features, num_relations, hidden_dim, num_layers):
-            super().__init__()
-            self.num_relations = num_relations
-            self.hidden_dim = hidden_dim
-            
-            # RGCN layers
-            self.rgcn_layers = nn.ModuleList()
-            
-            # First layer
-            self.rgcn_layers.append(
-                RGCNConv(num_node_features, hidden_dim, num_relations)
-            )
-            
-            # Hidden layers
-            for _ in range(num_layers - 1):
-                self.rgcn_layers.append(
-                    RGCNConv(hidden_dim, hidden_dim, num_relations)
-                )
-            
-            self.dropout = nn.Dropout(0.2)
-            self.layer_norm = nn.LayerNorm(hidden_dim)
-            
-        def forward(self, x, edge_index, edge_type):
-            # Apply RGCN layers
-            for i, layer in enumerate(self.rgcn_layers):
-                x = layer(x, edge_index, edge_type)
-                if i < len(self.rgcn_layers) - 1:
-                    x = F.relu(x)
-                    x = self.dropout(x)
-                    x = self.layer_norm(x)
-            
-            return x
-    
-    return LogRGCN(num_node_features, num_relations, hidden_dim, num_layers)
+log_nodes = nodes_df[log_mask]
+param_nodes = nodes_df[param_mask]
 
-def build_temporal_encoder(hidden_dim: int = 64) -> nn.Module:
-    """
-    Build temporal feature encoder
-    
-    Args:
-        hidden_dim: Hidden dimension size
-        
-    Returns:
-        Temporal encoder model
-    """
-    class TemporalEncoder(nn.Module):
-        def __init__(self, hidden_dim):
-            super().__init__()
-            self.time_encoder = nn.Sequential(
-                nn.Linear(4, hidden_dim),
-                nn.ReLU(),
-                nn.Linear(hidden_dim, hidden_dim)
-            )
-            
-            self.sequence_encoder = nn.LSTM(
-                input_size=4,
-                hidden_size=hidden_dim,
-                num_layers=2,
-                batch_first=True,
-                dropout=0.1
-            )
-            
-        def forward(self, temporal_features, sequence_features):
-            # Encode basic temporal features
-            time_emb = self.time_encoder(temporal_features)
-            
-            # Encode sequence features
-            seq_emb, _ = self.sequence_encoder(sequence_features)
-            
-            # Take last hidden state
-            return time_emb, seq_emb[:, -1, :]
-    
-    return TemporalEncoder(hidden_dim)
+# Assign features
+data['log'].x = features[log_mask.values]
+data['param'].x = features[param_mask.values]  # if param has no features, use torch.zeros
 
-def build_hybrid_model(num_node_features: int, num_relations: int, hidden_dim: int = 128) -> nn.Module:
-    """
-    Build hybrid RGCN + Temporal model
-    
-    Args:
-        num_node_features: Number of input node features
-        num_relations: Number of relation types
-        hidden_dim: Hidden dimension size
-        
-    Returns:
-        Hybrid model
-    """
-    class HybridLogAnalyzer(nn.Module):
-        def __init__(self, num_node_features, num_relations, hidden_dim):
-            super().__init__()
-            self.hidden_dim = hidden_dim
-            
-            # RGCN for graph structure
-            self.rgcn = build_rgcn_model(num_node_features, num_relations, hidden_dim)
-            
-            # Temporal encoder
-            self.temporal_encoder = build_temporal_encoder(hidden_dim)
-            
-            # Fusion layer
-            self.fusion = nn.Sequential(
-                nn.Linear(hidden_dim * 3, hidden_dim),  # graph + time + sequence
-                nn.ReLU(),
-                nn.Dropout(0.2),
-                nn.Linear(hidden_dim, hidden_dim)
-            )
-            
-            # Task-specific heads
-            self.impact_predictor = nn.Sequential(
-                nn.Linear(hidden_dim, hidden_dim // 2),
-                nn.ReLU(),
-                nn.Linear(hidden_dim // 2, 1),
-                nn.Sigmoid()
-            )
-            
-            self.anomaly_detector = nn.Sequential(
-                nn.Linear(hidden_dim, hidden_dim // 2),
-                nn.ReLU(),
-                nn.Linear(hidden_dim // 2, 1),
-                nn.Sigmoid()
-            )
-            
-            self.root_cause_classifier = nn.Sequential(
-                nn.Linear(hidden_dim, hidden_dim // 2),
-                nn.ReLU(),
-                nn.Linear(hidden_dim // 2, 5)  # 5 root cause categories
-            )
-            
-        def forward(self, x, edge_index, edge_type, temporal_features, sequence_features, node_mask=None):
-            # Graph embeddings
-            graph_emb = self.rgcn(x, edge_index, edge_type)
-            
-            # Temporal embeddings
-            time_emb, seq_emb = self.temporal_encoder(temporal_features, sequence_features)
-            
-            # Apply node mask if provided (for specific nodes)
-            if node_mask is not None:
-                graph_emb = graph_emb[node_mask]
-                time_emb = time_emb[node_mask]
-                seq_emb = seq_emb[node_mask]
-            
-            # Fuse embeddings
-            fused_emb = self.fusion(torch.cat([graph_emb, time_emb, seq_emb], dim=1))
-            
-            # Task predictions
-            impact_pred = self.impact_predictor(fused_emb)
-            anomaly_pred = self.anomaly_detector(fused_emb)
-            root_cause_pred = self.root_cause_classifier(fused_emb)
-            
-            return {
-                'graph_embeddings': graph_emb,
-                'temporal_embeddings': time_emb,
-                'sequence_embeddings': seq_emb,
-                'fused_embeddings': fused_emb,
-                'impact_prediction': impact_pred,
-                'anomaly_prediction': anomaly_pred,
-                'root_cause_prediction': root_cause_pred
-            }
-    
-    return HybridLogAnalyzer(num_node_features, num_relations, hidden_dim)
+# Map node names to indices
+node_id_map = dict(zip(nodes_df['Name'], nodes_df['node_id']))
 
-def create_pytorch_geometric_data(node_features: np.ndarray, edge_indices: np.ndarray, edge_types: np.ndarray) -> Data:
-    """
-    Create PyTorch Geometric Data object
-    
-    Args:
-        node_features: Node feature matrix
-        edge_indices: Edge indices
-        edge_types: Edge types
-        
-    Returns:
-        PyTorch Geometric Data object
-    """
-    data = Data(
-        x=torch.FloatTensor(node_features),
-        edge_index=torch.LongTensor(edge_indices),
-        edge_attr=torch.LongTensor(edge_types)
-    )
-    
-    return data
+# Process edge_index per relation type
+from collections import defaultdict
+edge_index_dict = defaultdict(lambda: [[], []])
 
-def train_model(model: nn.Module, data: Data, temporal_features: np.ndarray, sequence_features: np.ndarray, 
-                num_epochs: int = 100, lr: float = 0.001) -> Dict[str, List[float]]:
-    """
-    Train the hybrid model
+for _, row in edges_df.iterrows():
+    source = node_id_map[row['StartNode']]
+    target = node_id_map[row['EndNode']]
+    rel_type = row['Edge']
     
-    Args:
-        model: Hybrid model
-        data: PyTorch Geometric data
-        temporal_features: Temporal features
-        sequence_features: Sequence features
-        num_epochs: Number of training epochs
-        lr: Learning rate
-        
-    Returns:
-        Training history
-    """
-    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
-    
-    # Convert to tensors
-    temporal_tensor = torch.FloatTensor(temporal_features)
-    sequence_tensor = torch.FloatTensor(sequence_features)
-    
-    # Create dummy labels for demonstration
-    num_nodes = data.x.shape[0]
-    impact_labels = torch.randint(0, 2, (num_nodes, 1)).float()
-    anomaly_labels = torch.randint(0, 2, (num_nodes, 1)).float()
-    root_cause_labels = torch.randint(0, 5, (num_nodes,))
-    
-    history = {'loss': [], 'impact_loss': [], 'anomaly_loss': [], 'root_cause_loss': []}
-    
-    model.train()
-    for epoch in range(num_epochs):
-        optimizer.zero_grad()
-        
-        # Forward pass
-        outputs = model(data.x, data.edge_index, data.edge_attr, temporal_tensor, sequence_tensor)
-        
-        # Calculate losses
-        impact_loss = F.binary_cross_entropy(outputs['impact_prediction'], impact_labels)
-        anomaly_loss = F.binary_cross_entropy(outputs['anomaly_prediction'], anomaly_labels)
-        root_cause_loss = F.cross_entropy(outputs['root_cause_prediction'], root_cause_labels)
-        
-        total_loss = impact_loss + anomaly_loss + root_cause_loss
-        
-        # Backward pass
-        total_loss.backward()
-        optimizer.step()
-        
-        # Record losses
-        history['loss'].append(total_loss.item())
-        history['impact_loss'].append(impact_loss.item())
-        history['anomaly_loss'].append(anomaly_loss.item())
-        history['root_cause_loss'].append(root_cause_loss.item())
-        
-        if epoch % 10 == 0:
-            print(f'Epoch {epoch}, Total Loss: {total_loss.item():.4f}')
-    
-    return history
+    # Determine source and target types
+    source_label = nodes_df.loc[nodes_df['node_id'] == source, 'Label'].values[0].lower()
+    target_label = nodes_df.loc[nodes_df['node_id'] == target, 'Label'].values[0].lower()
 
-def predict_impact(model: nn.Module, data: Data, temporal_features: np.ndarray, sequence_features: np.ndarray, 
-                   node_indices: List[int] = None) -> Dict[str, np.ndarray]:
-    """
-    Predict impact for given nodes
-    
-    Args:
-        model: Trained model
-        data: PyTorch Geometric data
-        temporal_features: Temporal features
-        sequence_features: Sequence features
-        node_indices: Specific node indices to predict for
-        
-    Returns:
-        Predictions dictionary
-    """
-    model.eval()
-    
-    temporal_tensor = torch.FloatTensor(temporal_features)
-    sequence_tensor = torch.FloatTensor(sequence_features)
-    
-    with torch.no_grad():
-        outputs = model(data.x, data.edge_index, data.edge_attr, temporal_tensor, sequence_tensor)
-        
-        if node_indices is not None:
-            predictions = {
-                'impact_prediction': outputs['impact_prediction'][node_indices].cpu().numpy(),
-                'anomaly_prediction': outputs['anomaly_prediction'][node_indices].cpu().numpy(),
-                'root_cause_prediction': outputs['root_cause_prediction'][node_indices].cpu().numpy(),
-                'embeddings': outputs['fused_embeddings'][node_indices].cpu().numpy()
-            }
-        else:
-            predictions = {
-                'impact_prediction': outputs['impact_prediction'].cpu().numpy(),
-                'anomaly_prediction': outputs['anomaly_prediction'].cpu().numpy(),
-                'root_cause_prediction': outputs['root_cause_prediction'].cpu().numpy(),
-                'embeddings': outputs['fused_embeddings'].cpu().numpy()
-            }
-    
-    return predictions
+    edge_index_dict[(source_label, rel_type, target_label)][0].append(source)
+    edge_index_dict[(source_label, rel_type, target_label)][1].append(target)
 
-def find_similar_nodes(embeddings: np.ndarray, query_idx: int, top_k: int = 5) -> List[Tuple[int, float]]:
-    """
-    Find similar nodes based on embeddings
-    
-    Args:
-        embeddings: Node embeddings
-        query_idx: Query node index
-        top_k: Number of similar nodes to return
-        
-    Returns:
-        List of (node_index, similarity_score) tuples
-    """
-    from sklearn.metrics.pairwise import cosine_similarity
-    
-    query_embedding = embeddings[query_idx:query_idx+1]
-    similarities = cosine_similarity(query_embedding, embeddings)[0]
-    
-    # Get top k similar nodes (excluding the query node itself)
-    similar_indices = np.argsort(similarities)[::-1]
-    similar_indices = similar_indices[similar_indices != query_idx][:top_k]
-    
-    similar_nodes = [(idx, similarities[idx]) for idx in similar_indices]
-    return similar_nodes
+# Convert to tensor and add to HeteroData
+for (src_type, rel_type, dst_type), (src_list, dst_list) in edge_index_dict.items():
+    edge_index = torch.tensor([src_list, dst_list], dtype=torch.long)
+    data[(src_type, rel_type, dst_type)].edge_index = edge_index
 
-def main_pipeline(nodes_csv_path: str, relationships_csv_path: str):
-    """
-    Main pipeline to process CSV data and train RGCN model
-    
-    Args:
-        nodes_csv_path: Path to nodes CSV file
-        relationships_csv_path: Path to relationships CSV file
-    """
-    print("Starting log analysis pipeline...")
-    
-    # Load data
-    nodes_df, relationships_df = load_csv_data(nodes_csv_path, relationships_csv_path)
-    
-    # Preprocess nodes
-    processed_nodes_df, encoders = preprocess_node_data(nodes_df)
-    
-    # Create mappings
-    node_mapping = create_node_mapping(nodes_df)
-    edge_mapping = create_edge_mapping(relationships_df)
-    
-    # Create features
-    node_features = create_node_features(processed_nodes_df, encoders)
-    edge_indices, edge_types = create_edge_data(relationships_df, node_mapping, edge_mapping)
-    temporal_features, sequence_features = create_temporal_features(processed_nodes_df, node_mapping)
-    
-    # Create PyTorch Geometric data
-    data = create_pytorch_geometric_data(node_features, edge_indices, edge_types)
-    
-    # Build model
-    num_node_features = node_features.shape[1]
-    num_relations = len(edge_mapping)
-    model = build_hybrid_model(num_node_features, num_relations)
-    
-    print(f"Model built with {num_node_features} node features and {num_relations} relation types")
-    
-    # Train model
-    history = train_model(model, data, temporal_features, sequence_features)
-    
-    # Make predictions
-    predictions = predict_impact(model, data, temporal_features, sequence_features)
-    
-    # Find similar nodes for first node
-    similar_nodes = find_similar_nodes(predictions['embeddings'], 0)
-    
-    print("Pipeline completed successfully!")
-    print(f"Impact predictions shape: {predictions['impact_prediction'].shape}")
-    print(f"Similar nodes to node 0: {similar_nodes}")
-    
-    return {
-        'model': model,
-        'data': data,
-        'predictions': predictions,
-        'encoders': encoders,
-        'node_mapping': node_mapping,
-        'edge_mapping': edge_mapping,
-        'history': history
-    }
+# Define R-GCN model
+from torch_geometric.nn import RGCNConv
+from torch.nn import ModuleDict, Linear
 
-# Example usage
-if __name__ == "__main__":
-    # Replace with your actual file paths
-    nodes_csv = "nodes.csv"
-    relationships_csv = "relationships.csv"
-    
-    # Run the pipeline
-    results = main_pipeline(nodes_csv, relationships_csv)
-    
-    print("Log analysis system ready!")
-    print("Available functions:")
-    print("- predict_impact(): Predict impact of log events")
-    print("- find_similar_nodes(): Find similar log patterns")
-    print("- Use the trained model for real-time analysis")
+class RGCN(torch.nn.Module):
+    def __init__(self, in_channels, out_channels, metadata, num_relations):
+        super().__init__()
+        self.embeddings = torch.nn.ModuleDict()
+        for node_type in metadata[0]:
+            self.embeddings[node_type] = torch.nn.Linear(in_channels, 32)
+
+        self.conv1 = RGCNConv(32, 64, num_relations)
+        self.conv2 = RGCNConv(64, out_channels, num_relations)
+
+    def forward(self, x_dict, edge_index, edge_type):
+        x = {}
+        for node_type, feats in x_dict.items():
+            x[node_type] = self.embeddings[node_type](feats.float())
+
+        x = torch.cat([x[k] for k in x], dim=0)
+        x = self.conv1(x, edge_index, edge_type).relu()
+        x = self.conv2(x, edge_index, edge_type)
+        return x
+
+# Convert HeteroData to homogeneous for RGCN
+from torch_geometric.transforms import ToUndirected, ToHomogeneous
+transform = ToHomogeneous(edge_type_attr='edge_type', node_type_attr='node_type')
+data_homo = transform(data)
+
+# Create and train model
+model = RGCN(in_channels=3, out_channels=64, metadata=data.metadata(), num_relations=data_homo.num_edge_types)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
+
+# Training loop
+model.train()
+for epoch in range(100):
+    optimizer.zero_grad()
+    out = model(data_homo.x_dict, data_homo.edge_index, data_homo.edge_type)
+    loss = out.norm(p=2)  # dummy unsupervised loss
+    loss.backward()
+    optimizer.step()
+    if epoch % 10 == 0:
+        print(f"Epoch {epoch}, Loss: {loss.item():.4f}")
+
+# The 'out' tensor now contains embeddings for all nodes
+embeddings = out.detach()
