@@ -1,56 +1,58 @@
 rex = [
-    r'loc=\[(?P<loc>[^\]]+)\]\s+(?:[\w.]*\.)?(?P<class>[A-Za-z0-9]+)\s*-\s*(?P<msg>.*)',
     # Application version numbers (e.g., v2.3.1)
-    r'v\d+\.\d+\.\d+',
+    r'v(\d+\.\d+\.\d+)',
     # Server names (e.g., app-server-01)
-    r'app-server-\d+',
+    r'app-server-(\d+)',
     # Process IDs (e.g., PID 15847)
-    r'PID \d+',
+    r'PID (\d+)',
     # Port numbers (e.g., port(s): 8080)
-    r'port\(s\): \d+',
+    r'port\(s\): (\d+)',
     # HikariPool instance numbers (e.g., HikariPool-1)
-    r'HikariPool-\d+',
+    r'HikariPool-(\d+)',
     # Max connections (e.g., max connections: 20)
-    r'max connections: \d+',
+    r'max connections: (\d+)',
     # Time durations (e.g., in 4.234 seconds (JVM running for 5.123))
-    r'in \d+\.\d+ seconds \(JVM running for \d+\.\d+\)',
+    r'in (\d+\.\d+) seconds \(JVM running for \d+\.\d+\)',
     # Order IDs (e.g., orderId=ORD-2025-001234)
-    r'orderId=ORD-\d{4}-\d+',
+    r'orderId=(ORD-\d{4}-\d+)',
     # Customer IDs (e.g., customerId=CUST-789012)
-    r'customerId=CUST-\d+',
+    r'customerId=(CUST-\d+)',
     # Number of items (e.g., items=3)
-    r'items=\d+',
+    r'items=(\d+)',
     # Transaction IDs (e.g., transactionId=TXN-456789)
-    r'transactionId=TXN-\d+',
+    r'transactionId=(TXN-\d+)',
     # Product IDs (e.g., product ID: PROD-9876)
-    r'product ID: PROD-\w+',
+    r'product ID: (PROD-\w+)',
     # Number of customer records (e.g., Processing 150,000 customer records)
-    r'Processing \d+(?:,\d+)* customer records',
+    r'Processing (\d+(?:,\d+)*) customer records',
     # Cache and memory sizes (e.g., 425MB/500MB, freed 12MB)
-    r'Cache size reached \d+% capacity: \d+MB/\d+MB',
-    r'freed \d+MB',
+    r'Cache size reached \d+% capacity: (\d+MB/\d+MB)',
+    r'freed (\d+MB)',
     # Time delta in housekeeper (e.g., housekeeper delta=1m32s567ms)
-    r'housekeeper delta=\d+m\d+s\d+ms',
+    r'housekeeper delta=(\d+m\d+s\d+ms)',
     # Pool statistics (e.g., total=20, active=20, idle=0, waiting=8)
-    r'total=\d+, active=\d+, idle=\d+, waiting=\d+',
+    r'total=(\d+), active=(\d+), idle=(\d+), waiting=(\d+)',
     # Database connection pool exhaustion (e.g., 20/20 active connections)
-    r'Database connection pool near exhaustion: \d+/\d+ active connections',
+    r'Database connection pool near exhaustion: (\d+/\d+) active connections',
     # Timeout durations (e.g., timed out after 30000ms)
-    r'timed out after \d+ms',
-    # Full exception messages (e.g., java.sql.SQLTransientConnectionException: ...)
-    r'java\.sql\.SQLTransientConnectionException: .*',
-    r'java\.lang\.OutOfMemoryError: .*',
-    r'java\.net\.SocketTimeoutException: .*',
+    r'timed out after (\d+ms)',
+    # Full exception messages
+    r'java\.sql\.SQLTransientConnectionException: (.*)',
+    r'java\.lang\.OutOfMemoryError: (.*)',
+    r'java\.net\.SocketTimeoutException: (.*)',
     # SQL Warning details (e.g., SQL Warning Code: 1205, SQLState: 40001)
-    r'SQL Warning Code: \d+, SQLState: \w+',
+    r'SQL Warning Code: (\d+), SQLState: (\w+)',
     # File names with dates/numbers (e.g., invoice_2025_001255.pdf)
-    r'invoice_\d{4}_\d+\.pdf',
-    # Disk space numbers (e.g., Available disk space: 256MB)
-    r'Available disk space: \d+MB',
-    r'Disk space low: \d+MB remaining',
-    r'Disk space critically low: \d+MB remaining',
+    r'invoice_(\d{4}_\d+)\.pdf',
+    # Disk space numbers
+    r'Available disk space: (\d+MB)',
+    r'Disk space low: (\d+MB) remaining',
+    r'Disk space critically low: (\d+MB) remaining',
     # Item IDs (e.g., ITEM-A001)
-    r'ITEM-[A-Z0-9]+',
+    r'(ITEM-[A-Z0-9]+)',
     # Specific customer reference in messages (e.g., customer CUST-789020)
-    r'customer CUST-\d+'
+    r'customer (CUST-\d+)',
+
+    # Custom: loc and class extraction (if using inline)
+    r'loc=\[(?P<loc>[^\]]+)\]\s+(?:[\w.]*\.)?(?P<class>[A-Za-z0-9]+)\s*-\s*(?P<msg>.*)',
 ]
