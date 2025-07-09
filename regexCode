@@ -1,4 +1,5 @@
 rex = [
+    r'loc=\[(?P<loc>[^\]]+)\]\s+(?:[\w.]*\.)?(?P<class>[A-Za-z0-9]+)\s*-\s*(?P<msg>.*)',
     # Application version numbers (e.g., v2.3.1)
     r'v\d+\.\d+\.\d+',
     # Server names (e.g., app-server-01)
