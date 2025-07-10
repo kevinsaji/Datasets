@@ -1,58 +1,71 @@
-rex = [
-    # Application version numbers (e.g., v2.3.1)
-    r'v(\d+\.\d+\.\d+)',
-    # Server names (e.g., app-server-01)
-    r'app-server-(\d+)',
-    # Process IDs (e.g., PID 15847)
-    r'PID (\d+)',
-    # Port numbers (e.g., port(s): 8080)
-    r'port\(s\): (\d+)',
-    # HikariPool instance numbers (e.g., HikariPool-1)
-    r'HikariPool-(\d+)',
-    # Max connections (e.g., max connections: 20)
-    r'max connections: (\d+)',
-    # Time durations (e.g., in 4.234 seconds (JVM running for 5.123))
-    r'in (\d+\.\d+) seconds \(JVM running for \d+\.\d+\)',
-    # Order IDs (e.g., orderId=ORD-2025-001234)
-    r'orderId=(ORD-\d{4}-\d+)',
-    # Customer IDs (e.g., customerId=CUST-789012)
-    r'customerId=(CUST-\d+)',
-    # Number of items (e.g., items=3)
-    r'items=(\d+)',
-    # Transaction IDs (e.g., transactionId=TXN-456789)
-    r'transactionId=(TXN-\d+)',
-    # Product IDs (e.g., product ID: PROD-9876)
-    r'product ID: (PROD-\w+)',
-    # Number of customer records (e.g., Processing 150,000 customer records)
-    r'Processing (\d+(?:,\d+)*) customer records',
-    # Cache and memory sizes (e.g., 425MB/500MB, freed 12MB)
-    r'Cache size reached \d+% capacity: (\d+MB/\d+MB)',
-    r'freed (\d+MB)',
-    # Time delta in housekeeper (e.g., housekeeper delta=1m32s567ms)
-    r'housekeeper delta=(\d+m\d+s\d+ms)',
-    # Pool statistics (e.g., total=20, active=20, idle=0, waiting=8)
-    r'total=(\d+), active=(\d+), idle=(\d+), waiting=(\d+)',
-    # Database connection pool exhaustion (e.g., 20/20 active connections)
-    r'Database connection pool near exhaustion: (\d+/\d+) active connections',
-    # Timeout durations (e.g., timed out after 30000ms)
-    r'timed out after (\d+ms)',
-    # Full exception messages
-    r'java\.sql\.SQLTransientConnectionException: (.*)',
-    r'java\.lang\.OutOfMemoryError: (.*)',
-    r'java\.net\.SocketTimeoutException: (.*)',
-    # SQL Warning details (e.g., SQL Warning Code: 1205, SQLState: 40001)
-    r'SQL Warning Code: (\d+), SQLState: (\w+)',
-    # File names with dates/numbers (e.g., invoice_2025_001255.pdf)
-    r'invoice_(\d{4}_\d+)\.pdf',
-    # Disk space numbers
-    r'Available disk space: (\d+MB)',
-    r'Disk space low: (\d+MB) remaining',
-    r'Disk space critically low: (\d+MB) remaining',
-    # Item IDs (e.g., ITEM-A001)
-    r'(ITEM-[A-Z0-9]+)',
-    # Specific customer reference in messages (e.g., customer CUST-789020)
-    r'customer (CUST-\d+)',
+import pandas as pd
+import re
+from drain3 import TemplateMiner
+from drain3.template_miner_config import TemplateMinerConfig
+from drain3.persistence_handler import PersistenceHandler
+import json
+import os
 
-    # Custom: loc and class extraction (if using inline)
-    r'loc=\[(?P<loc>[^\]]+)\]\s+(?:[\w.]*\.)?(?P<class>[A-Za-z0-9]+)\s*-\s*(?P<msg>.*)',
+# File paths
+INPUT_FILE = "logs.csv"
+PARSED_OUTPUT = "parsed_logs.csv"
+TEMPLATES_OUTPUT = "templates.csv"
+
+# Load config and initialize Drain3
+config = TemplateMinerConfig()
+config.load_default_config()
+config.set("feature_extractor", "drain3")
+config.set("drain_depth", 5)
+config.set("max_children", 100)
+config.set("fixed_depth", 4)
+config.set("extra_delimiters", "=_:,")
+persistence_handler = PersistenceHandler("drain3_state.json")
+template_miner = TemplateMiner(config=config, persistence_handler=persistence_handler)
+
+# Read CSV file
+df = pd.read_csv(INPUT_FILE)
+
+# Output list
+parsed_rows = []
+
+# Process each row
+for line_id, row in df.iterrows():
+    content = str(row['content'])
+    result = template_miner.add_log_message(content)
+    
+    if not result:
+        continue  # Skip if nothing parsed
+
+    template = result["template_mined"]
+    event_id = result["cluster_id"]
+    parameter_list = result["params"]
+    
+    parsed_rows.append({
+        "line_id": line_id,
+        "time": row['time'],
+        "level": row['level'],
+        "content": content,
+        "event_id": event_id,
+        "event_template": template,
+        "parameter_list": json.dumps(parameter_list)
+    })
+
+# Save parsed logs
+parsed_df = pd.DataFrame(parsed_rows)
+parsed_df.to_csv(PARSED_OUTPUT, index=False)
+
+# Save template map
+template_records = [
+    {
+        "event_id": cluster.cluster_id,
+        "event_template": cluster.get_template(),
+        "occurrences": cluster.size
+    }
+    for cluster in template_miner.drain.clusters.get_clusters()
 ]
+
+template_df = pd.DataFrame(template_records)
+template_df.to_csv(TEMPLATES_OUTPUT, index=False)
+
+print(f"✅ Parsed logs saved to {PARSED_OUTPUT}")
+print(f"✅ Templates saved to {TEMPLATES_OUTPUT}")
