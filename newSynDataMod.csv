@@ -1,423 +1,423 @@
-"time","level","content"
-"2025-07-09 08:45:12.123","INFO","loc=[main] o.s.boot.SpringApplication - Starting OrderProcessingService v2.3.1 on app-server-01 with PID 15847"
-"2025-07-09 08:45:12.234","INFO","loc=[main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)"
-"2025-07-09 08:45:15.123","INFO","loc=[main] com.example.config.DatabaseConfig - Initializing database connection pool with max connections: 20"
-"2025-07-09 08:45:15.678","INFO","loc=[main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting..."
-"2025-07-09 08:45:15.892","INFO","loc=[main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed."
-"2025-07-09 08:45:16.245","INFO","loc=[main] o.s.boot.SpringApplication - Started OrderProcessingService in 4.234 seconds (JVM running for 5.123)"
-"2025-07-09 09:15:23.456","INFO","loc=[http-nio-8080-exec-1] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001234, customerId=CUST-789012, items=3"
-"2025-07-09 09:15:23.512","INFO","loc=[http-nio-8080-exec-1] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 09:15:23.567","INFO","loc=[http-nio-8080-exec-1] c.e.service.OrderService - Order ORD-2025-001234 created successfully"
-"2025-07-09 09:15:23.589","INFO","loc=[http-nio-8080-exec-1] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456789"
-"2025-07-09 09:15:24.123","INFO","loc=[http-nio-8080-exec-1] c.e.service.PaymentService - Payment successful: transactionId=TXN-456789"
-"2025-07-09 09:15:24.134","INFO","loc=[http-nio-8080-exec-1] c.e.controller.OrderController - Order ORD-2025-001234 processed successfully"
-"2025-07-09 09:32:45.234","INFO","loc=[http-nio-8080-exec-2] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001235, customerId=CUST-789013, items=2"
-"2025-07-09 09:32:45.289","INFO","loc=[http-nio-8080-exec-2] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 09:32:45.356","INFO","loc=[http-nio-8080-exec-2] c.e.service.OrderService - Order ORD-2025-001235 created successfully"
-"2025-07-09 09:32:45.378","INFO","loc=[http-nio-8080-exec-2] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456790"
-"2025-07-09 09:32:46.123","INFO","loc=[http-nio-8080-exec-2] c.e.service.PaymentService - Payment successful: transactionId=TXN-456790"
-"2025-07-09 09:32:46.134","INFO","loc=[http-nio-8080-exec-2] c.e.controller.OrderController - Order ORD-2025-001235 processed successfully"
-"2025-07-09 10:15:12.456","INFO","loc=[http-nio-8080-exec-3] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001236, customerId=CUST-789014, items=1"
-"2025-07-09 10:15:12.501","INFO","loc=[http-nio-8080-exec-3] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 10:15:12.567","INFO","loc=[http-nio-8080-exec-3] c.e.service.OrderService - Order ORD-2025-001236 created successfully"
-"2025-07-09 10:15:12.589","INFO","loc=[http-nio-8080-exec-3] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456791"
-"2025-07-09 10:15:13.123","INFO","loc=[http-nio-8080-exec-3] c.e.service.PaymentService - Payment successful: transactionId=TXN-456791"
-"2025-07-09 10:15:13.134","INFO","loc=[http-nio-8080-exec-3] c.e.controller.OrderController - Order ORD-2025-001236 processed successfully"
-"2025-07-09 10:45:23.456","INFO","loc=[http-nio-8080-exec-4] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001237, customerId=CUST-789015, items=2"
-"2025-07-09 10:45:23.512","INFO","loc=[http-nio-8080-exec-4] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 10:45:23.567","INFO","loc=[http-nio-8080-exec-4] c.e.service.OrderService - Order ORD-2025-001237 created successfully"
-"2025-07-09 10:45:23.589","INFO","loc=[http-nio-8080-exec-4] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456792"
-"2025-07-09 10:45:24.123","INFO","loc=[http-nio-8080-exec-4] c.e.service.PaymentService - Payment successful: transactionId=TXN-456792"
-"2025-07-09 10:45:24.134","INFO","loc=[http-nio-8080-exec-4] c.e.controller.OrderController - Order ORD-2025-001237 processed successfully"
-"2025-07-09 11:12:45.789","INFO","loc=[http-nio-8080-exec-5] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001238, customerId=CUST-789016, items=1"
-"2025-07-09 11:12:45.845","INFO","loc=[http-nio-8080-exec-5] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 11:12:45.912","INFO","loc=[http-nio-8080-exec-5] c.e.service.OrderService - Order ORD-2025-001238 created successfully"
-"2025-07-09 11:12:45.934","INFO","loc=[http-nio-8080-exec-5] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456793"
-"2025-07-09 11:12:46.567","INFO","loc=[http-nio-8080-exec-5] c.e.service.PaymentService - Payment successful: transactionId=TXN-456793"
-"2025-07-09 11:12:46.578","INFO","loc=[http-nio-8080-exec-5] c.e.controller.OrderController - Order ORD-2025-001238 processed successfully"
-"2025-07-09 11:35:12.123","INFO","loc=[http-nio-8080-exec-6] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001239, customerId=CUST-789017, items=3"
-"2025-07-09 11:35:12.167","INFO","loc=[http-nio-8080-exec-6] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 11:35:12.234","INFO","loc=[http-nio-8080-exec-6] c.e.service.OrderService - Order ORD-2025-001239 created successfully"
-"2025-07-09 11:35:12.256","INFO","loc=[http-nio-8080-exec-6] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456794"
-"2025-07-09 11:35:12.789","INFO","loc=[http-nio-8080-exec-6] c.e.service.PaymentService - Payment successful: transactionId=TXN-456794"
-"2025-07-09 11:35:12.801","INFO","loc=[http-nio-8080-exec-6] c.e.controller.OrderController - Order ORD-2025-001239 processed successfully"
-"2025-07-09 12:10:45.123","INFO","loc=[http-nio-8080-exec-7] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001240, customerId=CUST-789018, items=2"
-"2025-07-09 12:10:45.167","INFO","loc=[http-nio-8080-exec-7] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 12:10:45.234","INFO","loc=[http-nio-8080-exec-7] c.e.service.OrderService - Order ORD-2025-001240 created successfully"
-"2025-07-09 12:10:45.256","INFO","loc=[http-nio-8080-exec-7] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456795"
-"2025-07-09 12:10:45.789","INFO","loc=[http-nio-8080-exec-7] c.e.service.PaymentService - Payment successful: transactionId=TXN-456795"
-"2025-07-09 12:10:45.801","INFO","loc=[http-nio-8080-exec-7] c.e.controller.OrderController - Order ORD-2025-001240 processed successfully"
-"2025-07-09 12:45:23.456","INFO","loc=[http-nio-8080-exec-8] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001241, customerId=CUST-789019, items=1"
-"2025-07-09 12:45:23.501","INFO","loc=[http-nio-8080-exec-8] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 12:45:23.567","INFO","loc=[http-nio-8080-exec-8] c.e.service.OrderService - Order ORD-2025-001241 created successfully"
-"2025-07-09 12:45:23.589","INFO","loc=[http-nio-8080-exec-8] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456796"
-"2025-07-09 12:45:24.123","INFO","loc=[http-nio-8080-exec-8] c.e.service.PaymentService - Payment successful: transactionId=TXN-456796"
-"2025-07-09 12:45:24.134","INFO","loc=[http-nio-8080-exec-8] c.e.controller.OrderController - Order ORD-2025-001241 processed successfully"
-"2025-07-09 13:15:45.234","INFO","loc=[http-nio-8080-exec-9] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001242, customerId=CUST-789020, items=2"
-"2025-07-09 13:15:45.289","INFO","loc=[http-nio-8080-exec-9] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 13:15:45.356","INFO","loc=[http-nio-8080-exec-9] c.e.service.OrderService - Order ORD-2025-001242 created successfully"
-"2025-07-09 13:15:45.378","INFO","loc=[http-nio-8080-exec-9] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456797"
-"2025-07-09 13:15:46.123","INFO","loc=[http-nio-8080-exec-9] c.e.service.PaymentService - Payment successful: transactionId=TXN-456797"
-"2025-07-09 13:15:46.134","INFO","loc=[http-nio-8080-exec-9] c.e.controller.OrderController - Order ORD-2025-001242 processed successfully"
-"2025-07-09 13:45:12.456","INFO","loc=[http-nio-8080-exec-10] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001243, customerId=CUST-789021, items=1"
-"2025-07-09 13:45:12.501","INFO","loc=[http-nio-8080-exec-10] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 13:45:12.567","INFO","loc=[http-nio-8080-exec-10] c.e.service.OrderService - Order ORD-2025-001243 created successfully"
-"2025-07-09 13:45:12.589","INFO","loc=[http-nio-8080-exec-10] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456798"
-"2025-07-09 13:45:13.123","INFO","loc=[http-nio-8080-exec-10] c.e.service.PaymentService - Payment successful: transactionId=TXN-456798"
-"2025-07-09 13:45:13.134","INFO","loc=[http-nio-8080-exec-10] c.e.controller.OrderController - Order ORD-2025-001243 processed successfully"
-"2025-07-09 14:20:30.123","INFO","loc=[http-nio-8080-exec-11] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001244, customerId=CUST-789022, items=3"
-"2025-07-09 14:20:30.178","INFO","loc=[http-nio-8080-exec-11] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 14:20:30.234","INFO","loc=[http-nio-8080-exec-11] c.e.service.OrderService - Order ORD-2025-001244 created successfully"
-"2025-07-09 14:20:30.256","INFO","loc=[http-nio-8080-exec-11] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456799"
-"2025-07-09 14:20:30.789","INFO","loc=[http-nio-8080-exec-11] c.e.service.PaymentService - Payment successful: transactionId=TXN-456799"
-"2025-07-09 14:20:30.801","INFO","loc=[http-nio-8080-exec-11] c.e.controller.OrderController - Order ORD-2025-001244 processed successfully"
-"2025-07-09 14:23:45.123","INFO","loc=[http-nio-8080-exec-12] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001245, customerId=CUST-789023, items=2"
-"2025-07-09 14:23:45.145","INFO","loc=[http-nio-8080-exec-12] c.e.service.OrderService - Starting order processing"
-"2025-07-09 14:23:45.156","WARN","loc=[HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m32s567ms)"
-"2025-07-09 14:23:45.167","WARN","loc=[HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=20, active=20, idle=0, waiting=8)"
-"2025-07-09 14:23:45.178","WARN","loc=[http-nio-8080-exec-12] c.e.repository.OrderRepository - Database connection pool near exhaustion: 20/20 active connections"
-"2025-07-09 14:24:15.234","ERROR","loc=[http-nio-8080-exec-12] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Connection is not available, request timed out after 30000ms"
-"2025-07-09 14:24:15.245","ERROR","loc=[http-nio-8080-exec-12] c.e.service.OrderService - Failed to process order ORD-2025-001245: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms"
-"2025-07-09 14:35:12.456","INFO","loc=[http-nio-8080-exec-13] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001246, customerId=CUST-789024, items=1"
-"2025-07-09 14:35:12.501","INFO","loc=[http-nio-8080-exec-13] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 14:35:12.567","INFO","loc=[http-nio-8080-exec-13] c.e.service.OrderService - Order ORD-2025-001246 created successfully"
-"2025-07-09 14:35:12.589","INFO","loc=[http-nio-8080-exec-13] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456800"
-"2025-07-09 14:35:13.123","INFO","loc=[http-nio-8080-exec-13] c.e.service.PaymentService - Payment successful: transactionId=TXN-456800"
-"2025-07-09 14:35:13.134","INFO","loc=[http-nio-8080-exec-13] c.e.controller.OrderController - Order ORD-2025-001246 processed successfully"
-"2025-07-09 15:10:45.234","INFO","loc=[http-nio-8080-exec-14] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001247, customerId=CUST-789025, items=2"
-"2025-07-09 15:10:45.289","INFO","loc=[http-nio-8080-exec-14] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 15:10:45.356","INFO","loc=[http-nio-8080-exec-14] c.e.service.OrderService - Order ORD-2025-001247 created successfully"
-"2025-07-09 15:10:45.378","INFO","loc=[http-nio-8080-exec-14] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456801"
-"2025-07-09 15:10:46.123","INFO","loc=[http-nio-8080-exec-14] c.e.service.PaymentService - Payment successful: transactionId=TXN-456801"
-"2025-07-09 15:10:46.134","INFO","loc=[http-nio-8080-exec-14] c.e.controller.OrderController - Order ORD-2025-001247 processed successfully"
-"2025-07-09 15:45:12.456","INFO","loc=[http-nio-8080-exec-15] c.e.controller.ReportController - Generating large report for customer CUST-789999"
-"2025-07-09 15:45:12.523","INFO","loc=[http-nio-8080-exec-15] c.e.service.ReportService - Processing 150,000 customer records"
-"2025-07-09 15:45:13.789","WARN","loc=[http-nio-8080-exec-15] c.e.cache.ReportCache - Cache size reached 85% capacity: 425MB/500MB"
-"2025-07-09 15:45:14.234","WARN","loc=[GC (Allocation Failure)] - GC triggered: Eden space 85% full"
-"2025-07-09 15:45:14.567","WARN","loc=[GC (Allocation Failure)] - GC completed in 1.2s, freed 12MB"
-"2025-07-09 15:45:15.123","ERROR","loc=[http-nio-8080-exec-15] c.e.service.ReportService - Report generation failed: java.lang.OutOfMemoryError: Java heap space"
-"2025-07-09 15:50:23.456","INFO","loc=[http-nio-8080-exec-16] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001248, customerId=CUST-789026, items=1"
-"2025-07-09 15:50:23.501","INFO","loc=[http-nio-8080-exec-16] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 15:50:23.567","INFO","loc=[http-nio-8080-exec-16] c.e.service.OrderService - Order ORD-2025-001248 created successfully"
-"2025-07-09 15:50:23.589","INFO","loc=[http-nio-8080-exec-16] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456802"
-"2025-07-09 15:50:24.123","INFO","loc=[http-nio-8080-exec-16] c.e.service.PaymentService - Payment successful: transactionId=TXN-456802"
-"2025-07-09 15:50:24.134","INFO","loc=[http-nio-8080-exec-16] c.e.controller.OrderController - Order ORD-2025-001248 processed successfully"
-"2025-07-09 16:15:30.123","INFO","loc=[http-nio-8080-exec-17] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001249, customerId=CUST-789027, items=2"
-"2025-07-09 16:15:30.178","INFO","loc=[http-nio-8080-exec-17] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 16:15:30.234","INFO","loc=[http-nio-8080-exec-17] c.e.service.OrderService - Order ORD-2025-001249 created successfully"
-"2025-07-09 16:15:30.256","INFO","loc=[http-nio-8080-exec-17] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456803"
-"2025-07-09 16:15:30.789","INFO","loc=[http-nio-8080-exec-17] c.e.service.PaymentService - Payment successful: transactionId=TXN-456803"
-"2025-07-09 16:15:30.801","INFO","loc=[http-nio-8080-exec-17] c.e.controller.OrderController - Order ORD-2025-001249 processed successfully"
-"2025-07-09 16:20:30.123","INFO","loc=[http-nio-8080-exec-18] c.e.controller.OrderController - Processing order ORD-2025-001250"
-"2025-07-09 16:20:30.134","INFO","loc=[http-nio-8080-exec-19] c.e.controller.InventoryController - Updating inventory for ITEM-A001"
-"2025-07-09 16:20:30.156","INFO","loc=[http-nio-8080-exec-19] c.e.service.InventoryService - Acquired lock on inventory table for ITEM-A001"
-"2025-07-09 16:20:30.167","INFO","loc=[http-nio-8080-exec-18] c.e.service.OrderService - Acquired lock on orders table for customer CUST-789020"
-"2025-07-09 16:20:30.234","WARN","loc=[http-nio-8080-exec-18] o.h.engine.jdbc.spi.SqlExceptionHelper - SQL Warning Code: 1205, SQLState: 40001"
-"2025-07-09 16:20:30.245","ERROR","loc=[http-nio-8080-exec-18] o.h.engine.jdbc.spi.SqlExceptionHelper - Deadlock found when trying to get lock; try restarting transaction"
-"2025-07-09 16:20:30.256","ERROR","loc=[http-nio-8080-exec-18] c.e.service.OrderService - Transaction rolled back due to deadlock: org.springframework.dao.CannotAcquireLockException"
-"2025-07-09 16:35:45.123","INFO","loc=[http-nio-8080-exec-20] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001251, customerId=CUST-789028, items=1"
-"2025-07-09 16:35:45.178","INFO","loc=[http-nio-8080-exec-20] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 16:35:45.234","INFO","loc=[http-nio-8080-exec-20] c.e.service.OrderService - Order ORD-2025-001251 created successfully"
-"2025-07-09 16:35:45.256","INFO","loc=[http-nio-8080-exec-20] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456804"
-"2025-07-09 16:35:45.789","INFO","loc=[http-nio-8080-exec-20] c.e.service.PaymentService - Payment successful: transactionId=TXN-456804"
-"2025-07-09 16:35:45.801","INFO","loc=[http-nio-8080-exec-20] c.e.controller.OrderController - Order ORD-2025-001251 processed successfully"
-"2025-07-09 17:10:12.456","INFO","loc=[http-nio-8080-exec-21] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001252, customerId=CUST-789029, items=2"
-"2025-07-09 17:10:12.501","INFO","loc=[http-nio-8080-exec-21] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 17:10:12.567","INFO","loc=[http-nio-8080-exec-21] c.e.service.OrderService - Order ORD-2025-001252 created successfully"
-"2025-07-09 17:10:12.589","INFO","loc=[http-nio-8080-exec-21] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456805"
-"2025-07-09 17:10:13.123","INFO","loc=[http-nio-8080-exec-21] c.e.service.PaymentService - Payment successful: transactionId=TXN-456805"
-"2025-07-09 17:10:13.134","INFO","loc=[http-nio-8080-exec-21] c.e.controller.OrderController - Order ORD-2025-001252 processed successfully"
-"2025-07-09 17:35:22.456","INFO","loc=[http-nio-8080-exec-22] c.e.controller.OrderController - Processing payment for order ORD-2025-001253"
-"2025-07-09 17:35:22.489","INFO","loc=[http-nio-8080-exec-22] c.e.service.PaymentService - Sending payment request to gateway"
-"2025-07-09 17:35:32.567","WARN","loc=[http-nio-8080-exec-22] c.e.service.PaymentService - Payment gateway response delayed, elapsed: 10s"
-"2025-07-09 17:35:35.234","WARN","loc=[http-nio-8080-exec-22] c.e.service.PaymentService - Payment gateway still not responding, elapsed: 12s"
-"2025-07-09 17:35:37.678","ERROR","loc=[http-nio-8080-exec-22] c.e.service.PaymentService - Payment processing failed: java.net.SocketTimeoutException: Read timed out"
-"2025-07-09 17:45:45.123","INFO","loc=[http-nio-8080-exec-23] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001254, customerId=CUST-789030, items=1"
-"2025-07-09 17:45:45.178","INFO","loc=[http-nio-8080-exec-23] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 17:45:45.234","INFO","loc=[http-nio-8080-exec-23] c.e.service.OrderService - Order ORD-2025-001254 created successfully"
-"2025-07-09 17:45:45.256","INFO","loc=[http-nio-8080-exec-23] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456806"
-"2025-07-09 17:45:45.789","INFO","loc=[http-nio-8080-exec-23] c.e.service.PaymentService - Payment successful: transactionId=TXN-456806"
-"2025-07-09 17:45:45.801","INFO","loc=[http-nio-8080-exec-23] c.e.controller.OrderController - Order ORD-2025-001254 processed successfully"
-"2025-07-09 18:12:45.123","INFO","loc=[http-nio-8080-exec-24] c.e.controller.FileController - Uploading file: invoice_2025_001255.pdf"
-"2025-07-09 18:12:45.145","INFO","loc=[http-nio-8080-exec-24] c.e.service.FileService - Available disk space: 256MB"
-"2025-07-09 18:12:45.234","WARN","loc=[http-nio-8080-exec-24] c.e.service.FileService - Disk space low: 131MB remaining"
-"2025-07-09 18:12:45.345","WARN","loc=[http-nio-8080-exec-24] c.e.service.FileService - Disk space critically low: 45MB remaining"
-"2025-07-09 18:12:45.567","ERROR","loc=[http-nio-8080-exec-24] c.e.service.FileService - Failed to save file: java.io.IOException: No space left on device"
-"2025-07-09 18:12:45.678","ERROR","loc=[http-nio-8080-exec-24] c.e.controller.FileController - File upload failed for invoice_2025_001255.pdf"
-"2025-07-09 18:15:23.456","INFO","loc=[http-nio-8080-exec-25] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001256, customerId=CUST-789031, items=2"
-"2025-07-09 18:15:23.512","INFO","loc=[http-nio-8080-exec-25] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 18:15:23.567","INFO","loc=[http-nio-8080-exec-25] c.e.service.OrderService - Order ORD-2025-001256 created successfully"
-"2025-07-09 18:15:23.589","INFO","loc=[http-nio-8080-exec-25] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456807"
-"2025-07-09 18:15:24.123","INFO","loc=[http-nio-8080-exec-25] c.e.service.PaymentService - Payment successful: transactionId=TXN-456807"
-"2025-07-09 18:15:24.134","INFO","loc=[http-nio-8080-exec-25] c.e.controller.OrderController - Order ORD-2025-001256 processed successfully"
-"2025-07-09 18:30:45.234","INFO","loc=[http-nio-8080-exec-26] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001257, customerId=CUST-789032, items=1"
-"2025-07-09 18:30:45.289","INFO","loc=[http-nio-8080-exec-26] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 18:30:45.345","INFO","loc=[http-nio-8080-exec-26] c.e.service.OrderService - Order ORD-2025-001257 created successfully"
-"2025-07-09 18:30:45.367","INFO","loc=[http-nio-8080-exec-26] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456808"
-"2025-07-09 18:30:45.789","INFO","loc=[http-nio-8080-exec-26] c.e.service.PaymentService - Payment successful: transactionId=TXN-456808"
-"2025-07-09 18:30:45.801","INFO","loc=[http-nio-8080-exec-26] c.e.controller.OrderController - Order ORD-2025-001257 processed successfully"
-"2025-07-09 18:45:12.456","INFO","loc=[http-nio-8080-exec-27] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001258, customerId=CUST-789033, items=3"
-"2025-07-09 18:45:12.512","INFO","loc=[http-nio-8080-exec-27] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 18:45:12.567","INFO","loc=[http-nio-8080-exec-27] c.e.service.OrderService - Order ORD-2025-001258 created successfully"
-"2025-07-09 18:45:12.589","INFO","loc=[http-nio-8080-exec-27] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456809"
-"2025-07-09 18:45:13.123","INFO","loc=[http-nio-8080-exec-27] c.e.service.PaymentService - Payment successful: transactionId=TXN-456809"
-"2025-07-09 18:45:13.134","INFO","loc=[http-nio-8080-exec-27] c.e.controller.OrderController - Order ORD-2025-001258 processed successfully"
-"2025-07-09 19:10:30.123","INFO","loc=[http-nio-8080-exec-28] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001259, customerId=CUST-789034, items=2"
-"2025-07-09 19:10:30.178","INFO","loc=[http-nio-8080-exec-28] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 19:10:30.234","INFO","loc=[http-nio-8080-exec-28] c.e.service.OrderService - Order ORD-2025-001259 created successfully"
-"2025-07-09 19:10:30.256","INFO","loc=[http-nio-8080-exec-28] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456810"
-"2025-07-09 19:10:30.789","INFO","loc=[http-nio-8080-exec-28] c.e.service.PaymentService - Payment successful: transactionId=TXN-456810"
-"2025-07-09 19:10:30.801","INFO","loc=[http-nio-8080-exec-28] c.e.controller.OrderController - Order ORD-2025-001259 processed successfully"
-"2025-07-09 19:25:45.123","INFO","loc=[http-nio-8080-exec-29] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001260, customerId=CUST-789035, items=1"
-"2025-07-09 19:25:45.178","INFO","loc=[http-nio-8080-exec-29] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 19:25:45.234","INFO","loc=[http-nio-8080-exec-29] c.e.service.OrderService - Order ORD-2025-001260 created successfully"
-"2025-07-09 19:25:45.256","INFO","loc=[http-nio-8080-exec-29] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456811"
-"2025-07-09 19:25:45.567","INFO","loc=[http-nio-8080-exec-29] c.e.service.PaymentService - Payment successful: transactionId=TXN-456811"
-"2025-07-09 19:25:45.578","INFO","loc=[http-nio-8080-exec-29] c.e.controller.OrderController - Order ORD-2025-001260 processed successfully"
-"2025-07-09 19:42:12.456","INFO","loc=[http-nio-8080-exec-30] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001261, customerId=CUST-789036, items=2"
-"2025-07-09 19:42:12.501","INFO","loc=[http-nio-8080-exec-30] c.e.service.InventoryService - Checking inventory for 2 items"
-"2025-07-09 19:42:12.567","WARN","loc=[http-nio-8080-exec-30] c.e.service.InventoryService - Low stock warning: ITEM-A005 has only 3 units remaining"
-"2025-07-09 19:42:12.589","WARN","loc=[http-nio-8080-exec-30] c.e.service.InventoryService - Stock level critical: ITEM-A005 insufficient quantity for order"
-"2025-07-09 19:42:12.612","ERROR","loc=[http-nio-8080-exec-30] c.e.service.InventoryService - Inventory check failed: Insufficient stock for item ITEM-A005, requested: 2, available: 1"
-"2025-07-09 19:42:12.623","ERROR","loc=[http-nio-8080-exec-30] c.e.controller.OrderController - Order ORD-2025-001261 failed: inventory validation error"
-"2025-07-09 19:58:33.234","INFO","loc=[http-nio-8080-exec-31] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001262, customerId=CUST-789037, items=1"
-"2025-07-09 19:58:33.289","INFO","loc=[http-nio-8080-exec-31] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 19:58:33.345","INFO","loc=[http-nio-8080-exec-31] c.e.service.OrderService - Order ORD-2025-001262 created successfully"
-"2025-07-09 19:58:33.367","INFO","loc=[http-nio-8080-exec-31] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456812"
-"2025-07-09 19:58:33.789","INFO","loc=[http-nio-8080-exec-31] c.e.service.PaymentService - Payment successful: transactionId=TXN-456812"
-"2025-07-09 19:58:33.801","INFO","loc=[http-nio-8080-exec-31] c.e.controller.OrderController - Order ORD-2025-001262 processed successfully"
-"2025-07-09 20:15:45.123","INFO","loc=[http-nio-8080-exec-32] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001263, customerId=CUST-789038, items=3"
-"2025-07-09 20:15:45.178","INFO","loc=[http-nio-8080-exec-32] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 20:15:45.234","INFO","loc=[http-nio-8080-exec-32] c.e.service.OrderService - Order ORD-2025-001263 created successfully"
-"2025-07-09 20:15:45.256","INFO","loc=[http-nio-8080-exec-32] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456813"
-"2025-07-09 20:15:45.567","INFO","loc=[http-nio-8080-exec-32] c.e.service.PaymentService - Payment successful: transactionId=TXN-456813"
-"2025-07-09 20:15:45.578","INFO","loc=[http-nio-8080-exec-32] c.e.controller.OrderController - Order ORD-2025-001263 processed successfully"
-"2025-07-09 20:30:12.456","INFO","loc=[http-nio-8080-exec-33] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001264, customerId=CUST-789039, items=2"
-"2025-07-09 20:30:12.512","INFO","loc=[http-nio-8080-exec-33] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 20:30:12.567","INFO","loc=[http-nio-8080-exec-33] c.e.service.OrderService - Order ORD-2025-001264 created successfully"
-"2025-07-09 20:30:12.589","INFO","loc=[http-nio-8080-exec-33] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456814"
-"2025-07-09 20:30:13.123","INFO","loc=[http-nio-8080-exec-33] c.e.service.PaymentService - Payment successful: transactionId=TXN-456814"
-"2025-07-09 20:30:13.134","INFO","loc=[http-nio-8080-exec-33] c.e.controller.OrderController - Order ORD-2025-001264 processed successfully"
-"2025-07-09 20:45:30.234","INFO","loc=[http-nio-8080-exec-34] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001265, customerId=CUST-789040, items=1"
-"2025-07-09 20:45:30.289","INFO","loc=[http-nio-8080-exec-34] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 20:45:30.345","INFO","loc=[http-nio-8080-exec-34] c.e.service.OrderService - Order ORD-2025-001265 created successfully"
-"2025-07-09 20:45:30.367","INFO","loc=[http-nio-8080-exec-34] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456815"
-"2025-07-09 20:45:30.789","INFO","loc=[http-nio-8080-exec-34] c.e.service.PaymentService - Payment successful: transactionId=TXN-456815"
-"2025-07-09 20:45:30.801","INFO","loc=[http-nio-8080-exec-34] c.e.controller.OrderController - Order ORD-2025-001265 processed successfully"
-"2025-07-09 21:02:45.123","INFO","loc=[http-nio-8080-exec-35] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001266, customerId=CUST-789041, items=2"
-"2025-07-09 21:02:45.145","INFO","loc=[http-nio-8080-exec-35] c.e.service.OrderService - Starting order processing"
-"2025-07-09 21:02:45.178","INFO","loc=[http-nio-8080-exec-35] c.e.service.InventoryService - Inventory check in progress"
-"2025-07-09 21:02:45.234","WARN","loc=[HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m45s123ms)"
-"2025-07-09 21:02:45.267","WARN","loc=[HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=25, active=24, idle=1, waiting=12)"
-"2025-07-09 21:02:45.289","WARN","loc=[http-nio-8080-exec-35] c.e.repository.OrderRepository - Database connection pool near exhaustion: 24/25 active connections"
-"2025-07-09 21:03:15.345","ERROR","loc=[http-nio-8080-exec-35] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Connection is not available, request timed out after 30000ms"
-"2025-07-09 21:03:15.367","ERROR","loc=[http-nio-8080-exec-35] c.e.service.OrderService - Failed to process order ORD-2025-001266: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms"
-"2025-07-09 21:15:23.456","INFO","loc=[http-nio-8080-exec-36] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001267, customerId=CUST-789042, items=1"
-"2025-07-09 21:15:23.512","INFO","loc=[http-nio-8080-exec-36] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 21:15:23.567","INFO","loc=[http-nio-8080-exec-36] c.e.service.OrderService - Order ORD-2025-001267 created successfully"
-"2025-07-09 21:15:23.589","INFO","loc=[http-nio-8080-exec-36] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456816"
-"2025-07-09 21:15:24.123","INFO","loc=[http-nio-8080-exec-36] c.e.service.PaymentService - Payment successful: transactionId=TXN-456816"
-"2025-07-09 21:15:24.134","INFO","loc=[http-nio-8080-exec-36] c.e.controller.OrderController - Order ORD-2025-001267 processed successfully"
-"2025-07-09 21:30:45.234","INFO","loc=[http-nio-8080-exec-37] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001268, customerId=CUST-789043, items=2"
-"2025-07-09 21:30:45.289","INFO","loc=[http-nio-8080-exec-37] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 21:30:45.345","INFO","loc=[http-nio-8080-exec-37] c.e.service.OrderService - Order ORD-2025-001268 created successfully"
-"2025-07-09 21:30:45.367","INFO","loc=[http-nio-8080-exec-37] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456817"
-"2025-07-09 21:30:45.789","INFO","loc=[http-nio-8080-exec-37] c.e.service.PaymentService - Payment successful: transactionId=TXN-456817"
-"2025-07-09 21:30:45.801","INFO","loc=[http-nio-8080-exec-37] c.e.controller.OrderController - Order ORD-2025-001268 processed successfully"
-"2025-07-09 21:45:12.456","INFO","loc=[http-nio-8080-exec-38] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001269, customerId=CUST-789044, items=3"
-"2025-07-09 21:45:12.512","INFO","loc=[http-nio-8080-exec-38] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 21:45:12.567","INFO","loc=[http-nio-8080-exec-38] c.e.service.OrderService - Order ORD-2025-001269 created successfully"
-"2025-07-09 21:45:12.589","INFO","loc=[http-nio-8080-exec-38] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456818"
-"2025-07-09 21:45:13.123","INFO","loc=[http-nio-8080-exec-38] c.e.service.PaymentService - Payment successful: transactionId=TXN-456818"
-"2025-07-09 21:45:13.134","INFO","loc=[http-nio-8080-exec-38] c.e.controller.OrderController - Order ORD-2025-001269 processed successfully"
-"2025-07-09 22:00:30.123","INFO","loc=[http-nio-8080-exec-39] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001270, customerId=CUST-789045, items=1"
-"2025-07-09 22:00:30.178","INFO","loc=[http-nio-8080-exec-39] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 22:00:30.234","INFO","loc=[http-nio-8080-exec-39] c.e.service.OrderService - Order ORD-2025-001270 created successfully"
-"2025-07-09 22:00:30.256","INFO","loc=[http-nio-8080-exec-39] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456819"
-"2025-07-09 22:00:30.567","INFO","loc=[http-nio-8080-exec-39] c.e.service.PaymentService - Payment successful: transactionId=TXN-456819"
-"2025-07-09 22:00:30.578","INFO","loc=[http-nio-8080-exec-39] c.e.controller.OrderController - Order ORD-2025-001270 processed successfully"
-"2025-07-09 22:15:45.123","INFO","loc=[http-nio-8080-exec-40] c.e.controller.ReportController - Generating daily sales report for date: 2025-07-09"
-"2025-07-09 22:15:45.178","INFO","loc=[http-nio-8080-exec-40] c.e.service.ReportService - Processing 75,000 order records"
-"2025-07-09 22:15:46.234","WARN","loc=[http-nio-8080-exec-40] c.e.cache.ReportCache - Cache size reached 90% capacity: 450MB/500MB"
-"2025-07-09 22:15:46.789","WARN","loc=[GC (Allocation Failure)] - GC triggered: Eden space 88% full"
-"2025-07-09 22:15:47.123","WARN","loc=[GC (Allocation Failure)] - GC completed in 1.5s, freed 8MB"
-"2025-07-09 22:15:47.456","ERROR","loc=[http-nio-8080-exec-40] c.e.service.ReportService - Report generation failed: java.lang.OutOfMemoryError: Java heap space"
-"2025-07-09 22:30:12.234","INFO","loc=[http-nio-8080-exec-41] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001271, customerId=CUST-789046, items=2"
-"2025-07-09 22:30:12.289","INFO","loc=[http-nio-8080-exec-41] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 22:30:12.345","INFO","loc=[http-nio-8080-exec-41] c.e.service.OrderService - Order ORD-2025-001271 created successfully"
-"2025-07-09 22:30:12.367","INFO","loc=[http-nio-8080-exec-41] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456820"
-"2025-07-09 22:30:12.789","INFO","loc=[http-nio-8080-exec-41] c.e.service.PaymentService - Payment successful: transactionId=TXN-456820"
-"2025-07-09 22:30:12.801","INFO","loc=[http-nio-8080-exec-41] c.e.controller.OrderController - Order ORD-2025-001271 processed successfully"
-"2025-07-09 22:45:30.123","INFO","loc=[http-nio-8080-exec-42] c.e.controller.OrderController - Processing order ORD-2025-001272"
-"2025-07-09 22:45:30.145","INFO","loc=[http-nio-8080-exec-43] c.e.controller.InventoryController - Updating inventory for ITEM-C012"
-"2025-07-09 22:45:30.178","INFO","loc=[http-nio-8080-exec-43] c.e.service.InventoryService - Acquired lock on inventory table for ITEM-C012"
-"2025-07-09 22:45:30.234","INFO","loc=[http-nio-8080-exec-42] c.e.service.OrderService - Acquired lock on orders table for customer CUST-789047"
-"2025-07-09 22:45:30.289","WARN","loc=[http-nio-8080-exec-42] o.h.engine.jdbc.spi.SqlExceptionHelper - SQL Warning Code: 1205, SQLState: 40001"
-"2025-07-09 22:45:30.312","ERROR","loc=[http-nio-8080-exec-42] o.h.engine.jdbc.spi.SqlExceptionHelper - Deadlock found when trying to get lock; try restarting transaction"
-"2025-07-09 22:45:30.334","ERROR","loc=[http-nio-8080-exec-42] c.e.service.OrderService - Transaction rolled back due to deadlock: org.springframework.dao.CannotAcquireLockException"
-"2025-07-09 23:00:45.234","INFO","loc=[http-nio-8080-exec-44] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001273, customerId=CUST-789048, items=1"
-"2025-07-09 23:00:45.289","INFO","loc=[http-nio-8080-exec-44] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 23:00:45.345","INFO","loc=[http-nio-8080-exec-44] c.e.service.OrderService - Order ORD-2025-001273 created successfully"
-"2025-07-09 23:00:45.367","INFO","loc=[http-nio-8080-exec-44] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456821"
-"2025-07-09 23:00:45.789","INFO","loc=[http-nio-8080-exec-44] c.e.service.PaymentService - Payment successful: transactionId=TXN-456821"
-"2025-07-09 23:00:45.801","INFO","loc=[http-nio-8080-exec-44] c.e.controller.OrderController - Order ORD-2025-001273 processed successfully"
-"2025-07-09 23:15:12.456","INFO","loc=[http-nio-8080-exec-45] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001274, customerId=CUST-789049, items=3"
-"2025-07-09 23:15:12.512","INFO","loc=[http-nio-8080-exec-45] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 23:15:12.567","INFO","loc=[http-nio-8080-exec-45] c.e.service.OrderService - Order ORD-2025-001274 created successfully"
-"2025-07-09 23:15:12.589","INFO","loc=[http-nio-8080-exec-45] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456822"
-"2025-07-09 23:15:13.123","INFO","loc=[http-nio-8080-exec-45] c.e.service.PaymentService - Payment successful: transactionId=TXN-456822"
-"2025-07-09 23:15:13.134","INFO","loc=[http-nio-8080-exec-45] c.e.controller.OrderController - Order ORD-2025-001274 processed successfully"
-"2025-07-09 23:30:30.234","INFO","loc=[http-nio-8080-exec-46] c.e.controller.OrderController - Processing payment for order ORD-2025-001275"
-"2025-07-09 23:30:30.289","INFO","loc=[http-nio-8080-exec-46] c.e.service.PaymentService - Sending payment request to gateway"
-"2025-07-09 23:30:40.345","WARN","loc=[http-nio-8080-exec-46] c.e.service.PaymentService - Payment gateway response delayed, elapsed: 10s"
-"2025-07-09 23:30:45.567","WARN","loc=[http-nio-8080-exec-46] c.e.service.PaymentService - Payment gateway still not responding, elapsed: 15s"
-"2025-07-09 23:30:50.789","ERROR","loc=[http-nio-8080-exec-46] c.e.service.PaymentService - Payment processing failed: java.net.SocketTimeoutException: Read timed out"
-"2025-07-09 23:45:45.123","INFO","loc=[http-nio-8080-exec-47] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001276, customerId=CUST-789050, items=2"
-"2025-07-09 23:45:45.178","INFO","loc=[http-nio-8080-exec-47] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-09 23:45:45.234","INFO","loc=[http-nio-8080-exec-47] c.e.service.OrderService - Order ORD-2025-001276 created successfully"
-"2025-07-09 23:45:45.256","INFO","loc=[http-nio-8080-exec-47] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456823"
-"2025-07-09 23:45:45.567","INFO","loc=[http-nio-8080-exec-47] c.e.service.PaymentService - Payment successful: transactionId=TXN-456823"
-"2025-07-09 23:45:45.578","INFO","loc=[http-nio-8080-exec-47] c.e.controller.OrderController - Order ORD-2025-001276 processed successfully"
-"2025-07-10 00:00:15.234","INFO","loc=[http-nio-8080-exec-48] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001277, customerId=CUST-789051, items=1"
-"2025-07-10 00:00:15.289","INFO","loc=[http-nio-8080-exec-48] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 00:00:15.345","INFO","loc=[http-nio-8080-exec-48] c.e.service.OrderService - Order ORD-2025-001277 created successfully"
-"2025-07-10 00:00:15.367","INFO","loc=[http-nio-8080-exec-48] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456824"
-"2025-07-10 00:00:15.789","INFO","loc=[http-nio-8080-exec-48] c.e.service.PaymentService - Payment successful: transactionId=TXN-456824"
-"2025-07-10 00:00:15.801","INFO","loc=[http-nio-8080-exec-48] c.e.controller.OrderController - Order ORD-2025-001277 processed successfully"
-"2025-07-10 00:15:30.123","INFO","loc=[http-nio-8080-exec-49] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001278, customerId=CUST-789052, items=2"
-"2025-07-10 00:15:30.178","INFO","loc=[http-nio-8080-exec-49] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 00:15:30.234","INFO","loc=[http-nio-8080-exec-49] c.e.service.OrderService - Order ORD-2025-001278 created successfully"
-"2025-07-10 00:15:30.256","INFO","loc=[http-nio-8080-exec-49] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456825"
-"2025-07-10 00:15:30.567","INFO","loc=[http-nio-8080-exec-49] c.e.service.PaymentService - Payment successful: transactionId=TXN-456825"
-"2025-07-10 00:15:30.578","INFO","loc=[http-nio-8080-exec-49] c.e.controller.OrderController - Order ORD-2025-001278 processed successfully"
-"2025-07-10 00:30:45.234","INFO","loc=[http-nio-8080-exec-50] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001279, customerId=CUST-789053, items=3"
-"2025-07-10 00:30:45.289","INFO","loc=[http-nio-8080-exec-50] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 00:30:45.345","INFO","loc=[http-nio-8080-exec-50] c.e.service.OrderService - Order ORD-2025-001279 created successfully"
-"2025-07-10 00:30:45.367","INFO","loc=[http-nio-8080-exec-50] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456826"
-"2025-07-10 00:30:45.789","INFO","loc=[http-nio-8080-exec-50] c.e.service.PaymentService - Payment successful: transactionId=TXN-456826"
-"2025-07-10 00:30:45.801","INFO","loc=[http-nio-8080-exec-50] c.e.controller.OrderController - Order ORD-2025-001279 processed successfully"
-"2025-07-10 00:45:12.456","INFO","loc=[http-nio-8080-exec-51] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001280, customerId=CUST-789054, items=1"
-"2025-07-10 00:45:12.512","INFO","loc=[http-nio-8080-exec-51] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 00:45:12.567","INFO","loc=[http-nio-8080-exec-51] c.e.service.OrderService - Order ORD-2025-001280 created successfully"
-"2025-07-10 00:45:12.589","INFO","loc=[http-nio-8080-exec-51] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456827"
-"2025-07-10 00:45:13.123","INFO","loc=[http-nio-8080-exec-51] c.e.service.PaymentService - Payment successful: transactionId=TXN-456827"
-"2025-07-10 00:45:13.134","INFO","loc=[http-nio-8080-exec-51] c.e.controller.OrderController - Order ORD-2025-001280 processed successfully"
-"2025-07-10 01:00:30.234","INFO","loc=[http-nio-8080-exec-52] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001281, customerId=CUST-789055, items=2"
-"2025-07-10 01:00:30.289","INFO","loc=[http-nio-8080-exec-52] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 01:00:30.345","INFO","loc=[http-nio-8080-exec-52] c.e.service.OrderService - Order ORD-2025-001281 created successfully"
-"2025-07-10 01:00:30.367","INFO","loc=[http-nio-8080-exec-52] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456828"
-"2025-07-10 01:00:30.789","INFO","loc=[http-nio-8080-exec-52] c.e.service.PaymentService - Payment successful: transactionId=TXN-456828"
-"2025-07-10 01:00:30.801","INFO","loc=[http-nio-8080-exec-52] c.e.controller.OrderController - Order ORD-2025-001281 processed successfully"
-"2025-07-10 01:15:45.123","INFO","loc=[http-nio-8080-exec-53] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001282, customerId=CUST-789056, items=4"
-"2025-07-10 01:15:45.178","INFO","loc=[http-nio-8080-exec-53] c.e.service.InventoryService - Checking inventory for 4 items"
-"2025-07-10 01:15:45.234","WARN","loc=[http-nio-8080-exec-53] c.e.service.InventoryService - Low stock warning: ITEM-B012 has only 2 units remaining"
-"2025-07-10 01:15:45.256","WARN","loc=[http-nio-8080-exec-53] c.e.service.InventoryService - Stock level critical: ITEM-B012 insufficient quantity for order"
-"2025-07-10 01:15:45.278","ERROR","loc=[http-nio-8080-exec-53] c.e.service.InventoryService - Inventory check failed: Insufficient stock for item ITEM-B012, requested: 4, available: 2"
-"2025-07-10 01:15:45.289","ERROR","loc=[http-nio-8080-exec-53] c.e.controller.OrderController - Order ORD-2025-001282 failed: inventory validation error"
-"2025-07-10 01:30:12.456","INFO","loc=[http-nio-8080-exec-54] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001283, customerId=CUST-789057, items=1"
-"2025-07-10 01:30:12.512","INFO","loc=[http-nio-8080-exec-54] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 01:30:12.567","INFO","loc=[http-nio-8080-exec-54] c.e.service.OrderService - Order ORD-2025-001283 created successfully"
-"2025-07-10 01:30:12.589","INFO","loc=[http-nio-8080-exec-54] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456829"
-"2025-07-10 01:30:13.123","INFO","loc=[http-nio-8080-exec-54] c.e.service.PaymentService - Payment successful: transactionId=TXN-456829"
-"2025-07-10 01:30:13.134","INFO","loc=[http-nio-8080-exec-54] c.e.controller.OrderController - Order ORD-2025-001283 processed successfully"
-"2025-07-10 01:45:30.234","INFO","loc=[http-nio-8080-exec-55] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001284, customerId=CUST-789058, items=2"
-"2025-07-10 01:45:30.289","INFO","loc=[http-nio-8080-exec-55] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 01:45:30.345","INFO","loc=[http-nio-8080-exec-55] c.e.service.OrderService - Order ORD-2025-001284 created successfully"
-"2025-07-10 01:45:30.367","INFO","loc=[http-nio-8080-exec-55] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456830"
-"2025-07-10 01:45:30.789","INFO","loc=[http-nio-8080-exec-55] c.e.service.PaymentService - Payment successful: transactionId=TXN-456830"
-"2025-07-10 01:45:30.801","INFO","loc=[http-nio-8080-exec-55] c.e.controller.OrderController - Order ORD-2025-001284 processed successfully"
-"2025-07-10 02:00:45.123","INFO","loc=[http-nio-8080-exec-56] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001285, customerId=CUST-789059, items=3"
-"2025-07-10 02:00:45.178","INFO","loc=[http-nio-8080-exec-56] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 02:00:45.234","INFO","loc=[http-nio-8080-exec-56] c.e.service.OrderService - Order ORD-2025-001285 created successfully"
-"2025-07-10 02:00:45.256","INFO","loc=[http-nio-8080-exec-56] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456831"
-"2025-07-10 02:00:45.567","INFO","loc=[http-nio-8080-exec-56] c.e.service.PaymentService - Payment successful: transactionId=TXN-456831"
-"2025-07-10 02:00:45.578","INFO","loc=[http-nio-8080-exec-56] c.e.controller.OrderController - Order ORD-2025-001285 processed successfully"
-"2025-07-10 02:15:12.456","INFO","loc=[http-nio-8080-exec-57] c.e.controller.OrderController - Processing payment for order ORD-2025-001286"
-"2025-07-10 02:15:12.512","INFO","loc=[http-nio-8080-exec-57] c.e.service.PaymentService - Sending payment request to gateway"
-"2025-07-10 02:15:17.567","WARN","loc=[http-nio-8080-exec-57] c.e.service.PaymentService - Payment gateway response delayed, elapsed: 5s"
-"2025-07-10 02:15:22.789","WARN","loc=[http-nio-8080-exec-57] c.e.service.PaymentService - Payment gateway still not responding, elapsed: 10s"
-"2025-07-10 02:15:27.123","ERROR","loc=[http-nio-8080-exec-57] c.e.service.PaymentService - Payment processing failed: java.net.SocketTimeoutException: Read timed out"
-"2025-07-10 02:30:30.234","INFO","loc=[http-nio-8080-exec-58] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001287, customerId=CUST-789060, items=1"
-"2025-07-10 02:30:30.289","INFO","loc=[http-nio-8080-exec-58] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 02:30:30.345","INFO","loc=[http-nio-8080-exec-58] c.e.service.OrderService - Order ORD-2025-001287 created successfully"
-"2025-07-10 02:30:30.367","INFO","loc=[http-nio-8080-exec-58] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456832"
-"2025-07-10 02:30:30.789","INFO","loc=[http-nio-8080-exec-58] c.e.service.PaymentService - Payment successful: transactionId=TXN-456832"
-"2025-07-10 02:30:30.801","INFO","loc=[http-nio-8080-exec-58] c.e.controller.OrderController - Order ORD-2025-001287 processed successfully"
-"2025-07-10 02:45:45.123","INFO","loc=[http-nio-8080-exec-59] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001288, customerId=CUST-789061, items=2"
-"2025-07-10 02:45:45.178","INFO","loc=[http-nio-8080-exec-59] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 02:45:45.234","INFO","loc=[http-nio-8080-exec-59] c.e.service.OrderService - Order ORD-2025-001288 created successfully"
-"2025-07-10 02:45:45.256","INFO","loc=[http-nio-8080-exec-59] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456833"
-"2025-07-10 02:45:45.567","INFO","loc=[http-nio-8080-exec-59] c.e.service.PaymentService - Payment successful: transactionId=TXN-456833"
-"2025-07-10 02:45:45.578","INFO","loc=[http-nio-8080-exec-59] c.e.controller.OrderController - Order ORD-2025-001288 processed successfully"
-"2025-07-10 03:00:12.456","INFO","loc=[http-nio-8080-exec-60] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001289, customerId=CUST-789062, items=5"
-"2025-07-10 03:00:12.512","INFO","loc=[http-nio-8080-exec-60] c.e.service.InventoryService - Checking inventory for 5 items"
-"2025-07-10 03:00:12.567","INFO","loc=[http-nio-8080-exec-60] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 03:00:12.589","INFO","loc=[http-nio-8080-exec-60] c.e.service.OrderService - Order ORD-2025-001289 created successfully"
-"2025-07-10 03:00:12.612","INFO","loc=[http-nio-8080-exec-60] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456834"
-"2025-07-10 03:00:13.123","INFO","loc=[http-nio-8080-exec-60] c.e.service.PaymentService - Payment successful: transactionId=TXN-456834"
-"2025-07-10 03:00:13.134","INFO","loc=[http-nio-8080-exec-60] c.e.controller.OrderController - Order ORD-2025-001289 processed successfully"
-"2025-07-10 03:15:30.234","INFO","loc=[http-nio-8080-exec-61] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001290, customerId=CUST-789063, items=1"
-"2025-07-10 03:15:30.289","INFO","loc=[http-nio-8080-exec-61] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 03:15:30.345","INFO","loc=[http-nio-8080-exec-61] c.e.service.OrderService - Order ORD-2025-001290 created successfully"
-"2025-07-10 03:15:30.367","INFO","loc=[http-nio-8080-exec-61] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456835"
-"2025-07-10 03:15:30.789","INFO","loc=[http-nio-8080-exec-61] c.e.service.PaymentService - Payment successful: transactionId=TXN-456835"
-"2025-07-10 03:15:30.801","INFO","loc=[http-nio-8080-exec-61] c.e.controller.OrderController - Order ORD-2025-001290 processed successfully"
-"2025-07-10 03:30:45.123","INFO","loc=[http-nio-8080-exec-62] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001291, customerId=CUST-789064, items=2"
-"2025-07-10 03:30:45.178","INFO","loc=[http-nio-8080-exec-62] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 03:30:45.234","INFO","loc=[http-nio-8080-exec-62] c.e.service.OrderService - Order ORD-2025-001291 created successfully"
-"2025-07-10 03:30:45.256","INFO","loc=[http-nio-8080-exec-62] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456836"
-"2025-07-10 03:30:45.567","INFO","loc=[http-nio-8080-exec-62] c.e.service.PaymentService - Payment successful: transactionId=TXN-456836"
-"2025-07-10 03:30:45.578","INFO","loc=[http-nio-8080-exec-62] c.e.controller.OrderController - Order ORD-2025-001291 processed successfully"
-"2025-07-10 03:45:12.456","INFO","loc=[http-nio-8080-exec-63] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001292, customerId=CUST-789065, items=3"
-"2025-07-10 03:45:12.512","INFO","loc=[http-nio-8080-exec-63] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 03:45:12.567","INFO","loc=[http-nio-8080-exec-63] c.e.service.OrderService - Order ORD-2025-001292 created successfully"
-"2025-07-10 03:45:12.589","INFO","loc=[http-nio-8080-exec-63] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456837"
-"2025-07-10 03:45:13.123","INFO","loc=[http-nio-8080-exec-63] c.e.service.PaymentService - Payment successful: transactionId=TXN-456837"
-"2025-07-10 03:45:13.134","INFO","loc=[http-nio-8080-exec-63] c.e.controller.OrderController - Order ORD-2025-001292 processed successfully"
-"2025-07-10 04:00:30.234","INFO","loc=[http-nio-8080-exec-64] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001293, customerId=CUST-789066, items=1"
-"2025-07-10 04:00:30.289","INFO","loc=[http-nio-8080-exec-64] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 04:00:30.345","INFO","loc=[http-nio-8080-exec-64] c.e.service.OrderService - Order ORD-2025-001293 created successfully"
-"2025-07-10 04:00:30.367","INFO","loc=[http-nio-8080-exec-64] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456838"
-"2025-07-10 04:00:30.789","INFO","loc=[http-nio-8080-exec-64] c.e.service.PaymentService - Payment successful: transactionId=TXN-456838"
-"2025-07-10 04:00:30.801","INFO","loc=[http-nio-8080-exec-64] c.e.controller.OrderController - Order ORD-2025-001293 processed successfully"
-"2025-07-10 04:15:45.123","INFO","loc=[http-nio-8080-exec-65] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001294, customerId=CUST-789067, items=2"
-"2025-07-10 04:15:45.178","INFO","loc=[http-nio-8080-exec-65] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 04:15:45.234","INFO","loc=[http-nio-8080-exec-65] c.e.service.OrderService - Order ORD-2025-001294 created successfully"
-"2025-07-10 04:15:45.256","INFO","loc=[http-nio-8080-exec-65] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456839"
-"2025-07-10 04:15:45.567","INFO","loc=[http-nio-8080-exec-65] c.e.service.PaymentService - Payment successful: transactionId=TXN-456839"
-"2025-07-10 04:15:45.578","INFO","loc=[http-nio-8080-exec-65] c.e.controller.OrderController - Order ORD-2025-001294 processed successfully"
-"2025-07-10 04:30:12.456","INFO","loc=[http-nio-8080-exec-66] c.e.controller.OrderController - Processing order ORD-2025-001295"
-"2025-07-10 04:30:12.478","INFO","loc=[http-nio-8080-exec-67] c.e.controller.InventoryController - Updating inventory for ITEM-D007"
-"2025-07-10 04:30:12.512","INFO","loc=[http-nio-8080-exec-67] c.e.service.InventoryService - Acquired lock on inventory table for ITEM-D007"
-"2025-07-10 04:30:12.567","INFO","loc=[http-nio-8080-exec-66] c.e.service.OrderService - Acquired lock on orders table for customer CUST-789068"
-"2025-07-10 04:30:12.589","WARN","loc=[http-nio-8080-exec-66] o.h.engine.jdbc.spi.SqlExceptionHelper - SQL Warning Code: 1205, SQLState: 40001"
-"2025-07-10 04:30:12.612","ERROR","loc=[http-nio-8080-exec-66] o.h.engine.jdbc.spi.SqlExceptionHelper - Deadlock found when trying to get lock; try restarting transaction"
-"2025-07-10 04:30:12.634","ERROR","loc=[http-nio-8080-exec-66] c.e.service.OrderService - Transaction rolled back due to deadlock: org.springframework.dao.CannotAcquireLockException"
-"2025-07-10 04:45:30.234","INFO","loc=[http-nio-8080-exec-68] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001296, customerId=CUST-789069, items=4"
-"2025-07-10 04:45:30.289","INFO","loc=[http-nio-8080-exec-68] c.e.service.InventoryService - Checking inventory for 4 items"
-"2025-07-10 04:45:30.345","INFO","loc=[http-nio-8080-exec-68] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 04:45:30.367","INFO","loc=[http-nio-8080-exec-68] c.e.service.OrderService - Order ORD-2025-001296 created successfully"
-"2025-07-10 04:45:30.389","INFO","loc=[http-nio-8080-exec-68] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456840"
-"2025-07-10 04:45:30.789","INFO","loc=[http-nio-8080-exec-68] c.e.service.PaymentService - Payment successful: transactionId=TXN-456840"
-"2025-07-10 04:45:30.801","INFO","loc=[http-nio-8080-exec-68] c.e.controller.OrderController - Order ORD-2025-001296 processed successfully"
-"2025-07-10 05:00:45.123","INFO","loc=[http-nio-8080-exec-69] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001297, customerId=CUST-789070, items=1"
-"2025-07-10 05:00:45.178","INFO","loc=[http-nio-8080-exec-69] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 05:00:45.234","INFO","loc=[http-nio-8080-exec-69] c.e.service.OrderService - Order ORD-2025-001297 created successfully"
-"2025-07-10 05:00:45.256","INFO","loc=[http-nio-8080-exec-69] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456841"
-"2025-07-10 05:00:45.567","INFO","loc=[http-nio-8080-exec-69] c.e.service.PaymentService - Payment successful: transactionId=TXN-456841"
-"2025-07-10 05:00:45.578","INFO","loc=[http-nio-8080-exec-69] c.e.controller.OrderController - Order ORD-2025-001297 processed successfully"
-"2025-07-10 05:15:12.456","INFO","loc=[http-nio-8080-exec-70] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001298, customerId=CUST-789071, items=3"
-"2025-07-10 05:15:12.512","INFO","loc=[http-nio-8080-exec-70] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 05:15:12.567","INFO","loc=[http-nio-8080-exec-70] c.e.service.OrderService - Order ORD-2025-001298 created successfully"
-"2025-07-10 05:15:12.589","INFO","loc=[http-nio-8080-exec-70] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456842"
-"2025-07-10 05:15:13.123","INFO","loc=[http-nio-8080-exec-70] c.e.service.PaymentService - Payment successful: transactionId=TXN-456842"
-"2025-07-10 05:15:13.134","INFO","loc=[http-nio-8080-exec-70] c.e.controller.OrderController - Order ORD-2025-001298 processed successfully"
-"2025-07-10 05:30:30.234","INFO","loc=[http-nio-8080-exec-71] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001299, customerId=CUST-789072, items=2"
-"2025-07-10 05:30:30.289","INFO","loc=[http-nio-8080-exec-71] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 05:30:30.345","INFO","loc=[http-nio-8080-exec-71] c.e.service.OrderService - Order ORD-2025-001299 created successfully"
-"2025-07-10 05:30:30.367","INFO","loc=[http-nio-8080-exec-71] c.e.service.PaymentService - Payment gateway request sent: transactionId=TXN-456843"
-"2025-07-10 05:30:30.789","INFO","loc=[http-nio-8080-exec-71] c.e.service.PaymentService - Payment successful: transactionId=TXN-456843"
-"2025-07-10 05:30:30.801","INFO","loc=[http-nio-8080-exec-71] c.e.controller.OrderController - Order ORD-2025-001299 processed successfully"
-"2025-07-10 05:45:45.123","INFO","loc=[http-nio-8080-exec-72] c.e.controller.OrderController - Received order request: orderId=ORD-2025-001300, customerId=CUST-789073, items=1"
-"2025-07-10 05:45:45.178","INFO","loc=[http-nio-8080-exec-72] c.e.service.InventoryService - Inventory check completed: all items available"
-"2025-07-10 05:45:45.234","INFO","loc=[http-nio-8080-exec-72] c.e.service.OrderService - Order ORD-2025-001300 created successfully"
+time,level,service,content
+2025-07-09 08:45:12.123,INFO,o.s.boot.SpringApplication,loc=main - Starting OrderProcessingService v2.3.1 on app-server-01 with PID 15847
+2025-07-09 08:45:12.234,INFO,o.s.boot.web.embedded.tomcat.TomcatWebServer,loc=main - Tomcat initialized with port(s): 8080 (http)
+2025-07-09 08:45:15.123,INFO,com.example.config.DatabaseConfig,loc=main - Initializing database connection pool with max connections: 20
+2025-07-09 08:45:15.678,INFO,com.zaxxer.hikari.HikariDataSource,loc=main - HikariPool-1 - Starting...
+2025-07-09 08:45:15.892,INFO,com.zaxxer.hikari.HikariDataSource,loc=main - HikariPool-1 - Start completed.
+2025-07-09 08:45:16.245,INFO,o.s.boot.SpringApplication,loc=main - Started OrderProcessingService in 4.234 seconds (JVM running for 5.123)
+2025-07-09 09:15:23.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-1 - Received order request: orderId=ORD-2025-001234, customerId=CUST-789012, items=3"
+2025-07-09 09:15:23.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-1 - Inventory check completed: all items available
+2025-07-09 09:15:23.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-1 - Order ORD-2025-001234 created successfully
+2025-07-09 09:15:23.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-1 - Payment gateway request sent: transactionId=TXN-456789
+2025-07-09 09:15:24.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-1 - Payment successful: transactionId=TXN-456789
+2025-07-09 09:15:24.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-1 - Order ORD-2025-001234 processed successfully
+2025-07-09 09:32:45.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-2 - Received order request: orderId=ORD-2025-001235, customerId=CUST-789013, items=2"
+2025-07-09 09:32:45.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-2 - Inventory check completed: all items available
+2025-07-09 09:32:45.356,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-2 - Order ORD-2025-001235 created successfully
+2025-07-09 09:32:45.378,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-2 - Payment gateway request sent: transactionId=TXN-456790
+2025-07-09 09:32:46.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-2 - Payment successful: transactionId=TXN-456790
+2025-07-09 09:32:46.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-2 - Order ORD-2025-001235 processed successfully
+2025-07-09 10:15:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-3 - Received order request: orderId=ORD-2025-001236, customerId=CUST-789014, items=1"
+2025-07-09 10:15:12.501,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-3 - Inventory check completed: all items available
+2025-07-09 10:15:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-3 - Order ORD-2025-001236 created successfully
+2025-07-09 10:15:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-3 - Payment gateway request sent: transactionId=TXN-456791
+2025-07-09 10:15:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-3 - Payment successful: transactionId=TXN-456791
+2025-07-09 10:15:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-3 - Order ORD-2025-001236 processed successfully
+2025-07-09 10:45:23.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-4 - Received order request: orderId=ORD-2025-001237, customerId=CUST-789015, items=2"
+2025-07-09 10:45:23.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-4 - Inventory check completed: all items available
+2025-07-09 10:45:23.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-4 - Order ORD-2025-001237 created successfully
+2025-07-09 10:45:23.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-4 - Payment gateway request sent: transactionId=TXN-456792
+2025-07-09 10:45:24.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-4 - Payment successful: transactionId=TXN-456792
+2025-07-09 10:45:24.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-4 - Order ORD-2025-001237 processed successfully
+2025-07-09 11:12:45.789,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-5 - Received order request: orderId=ORD-2025-001238, customerId=CUST-789016, items=1"
+2025-07-09 11:12:45.845,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-5 - Inventory check completed: all items available
+2025-07-09 11:12:45.912,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-5 - Order ORD-2025-001238 created successfully
+2025-07-09 11:12:45.934,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-5 - Payment gateway request sent: transactionId=TXN-456793
+2025-07-09 11:12:46.567,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-5 - Payment successful: transactionId=TXN-456793
+2025-07-09 11:12:46.578,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-5 - Order ORD-2025-001238 processed successfully
+2025-07-09 11:35:12.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-6 - Received order request: orderId=ORD-2025-001239, customerId=CUST-789017, items=3"
+2025-07-09 11:35:12.167,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-6 - Inventory check completed: all items available
+2025-07-09 11:35:12.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-6 - Order ORD-2025-001239 created successfully
+2025-07-09 11:35:12.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-6 - Payment gateway request sent: transactionId=TXN-456794
+2025-07-09 11:35:12.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-6 - Payment successful: transactionId=TXN-456794
+2025-07-09 11:35:12.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-6 - Order ORD-2025-001239 processed successfully
+2025-07-09 12:10:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-7 - Received order request: orderId=ORD-2025-001240, customerId=CUST-789018, items=2"
+2025-07-09 12:10:45.167,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-7 - Inventory check completed: all items available
+2025-07-09 12:10:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-7 - Order ORD-2025-001240 created successfully
+2025-07-09 12:10:45.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-7 - Payment gateway request sent: transactionId=TXN-456795
+2025-07-09 12:10:45.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-7 - Payment successful: transactionId=TXN-456795
+2025-07-09 12:10:45.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-7 - Order ORD-2025-001240 processed successfully
+2025-07-09 12:45:23.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-8 - Received order request: orderId=ORD-2025-001241, customerId=CUST-789019, items=1"
+2025-07-09 12:45:23.501,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-8 - Inventory check completed: all items available
+2025-07-09 12:45:23.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-8 - Order ORD-2025-001241 created successfully
+2025-07-09 12:45:23.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-8 - Payment gateway request sent: transactionId=TXN-456796
+2025-07-09 12:45:24.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-8 - Payment successful: transactionId=TXN-456796
+2025-07-09 12:45:24.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-8 - Order ORD-2025-001241 processed successfully
+2025-07-09 13:15:45.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-9 - Received order request: orderId=ORD-2025-001242, customerId=CUST-789020, items=2"
+2025-07-09 13:15:45.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-9 - Inventory check completed: all items available
+2025-07-09 13:15:45.356,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-9 - Order ORD-2025-001242 created successfully
+2025-07-09 13:15:45.378,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-9 - Payment gateway request sent: transactionId=TXN-456797
+2025-07-09 13:15:46.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-9 - Payment successful: transactionId=TXN-456797
+2025-07-09 13:15:46.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-9 - Order ORD-2025-001242 processed successfully
+2025-07-09 13:45:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-10 - Received order request: orderId=ORD-2025-001243, customerId=CUST-789021, items=1"
+2025-07-09 13:45:12.501,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-10 - Inventory check completed: all items available
+2025-07-09 13:45:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-10 - Order ORD-2025-001243 created successfully
+2025-07-09 13:45:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-10 - Payment gateway request sent: transactionId=TXN-456798
+2025-07-09 13:45:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-10 - Payment successful: transactionId=TXN-456798
+2025-07-09 13:45:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-10 - Order ORD-2025-001243 processed successfully
+2025-07-09 14:20:30.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-11 - Received order request: orderId=ORD-2025-001244, customerId=CUST-789022, items=3"
+2025-07-09 14:20:30.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-11 - Inventory check completed: all items available
+2025-07-09 14:20:30.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-11 - Order ORD-2025-001244 created successfully
+2025-07-09 14:20:30.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-11 - Payment gateway request sent: transactionId=TXN-456799
+2025-07-09 14:20:30.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-11 - Payment successful: transactionId=TXN-456799
+2025-07-09 14:20:30.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-11 - Order ORD-2025-001244 processed successfully
+2025-07-09 14:23:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-12 - Received order request: orderId=ORD-2025-001245, customerId=CUST-789023, items=2"
+2025-07-09 14:23:45.145,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-12 - Starting order processing
+2025-07-09 14:23:45.156,WARN,com.zaxxer.hikari.pool.HikariPool,loc=HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m32s567ms)
+2025-07-09 14:23:45.167,WARN,com.zaxxer.hikari.pool.HikariPool,"loc=HikariPool-1 housekeeper - HikariPool-1 - Pool stats (total=20, active=20, idle=0, waiting=8)"
+2025-07-09 14:23:45.178,WARN,c.e.repository.OrderRepository,loc=http-nio-8080-exec-12 - Database connection pool near exhaustion: 20/20 active connections
+2025-07-09 14:24:15.234,ERROR,com.zaxxer.hikari.pool.HikariPool,"loc=http-nio-8080-exec-12 - HikariPool-1 - Connection is not available, request timed out after 30000ms"
+2025-07-09 14:24:15.245,ERROR,c.e.service.OrderService,"loc=http-nio-8080-exec-12 - Failed to process order ORD-2025-001245: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms"
+2025-07-09 14:35:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-13 - Received order request: orderId=ORD-2025-001246, customerId=CUST-789024, items=1"
+2025-07-09 14:35:12.501,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-13 - Inventory check completed: all items available
+2025-07-09 14:35:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-13 - Order ORD-2025-001246 created successfully
+2025-07-09 14:35:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-13 - Payment gateway request sent: transactionId=TXN-456800
+2025-07-09 14:35:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-13 - Payment successful: transactionId=TXN-456800
+2025-07-09 14:35:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-13 - Order ORD-2025-001246 processed successfully
+2025-07-09 15:10:45.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-14 - Received order request: orderId=ORD-2025-001247, customerId=CUST-789025, items=2"
+2025-07-09 15:10:45.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-14 - Inventory check completed: all items available
+2025-07-09 15:10:45.356,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-14 - Order ORD-2025-001247 created successfully
+2025-07-09 15:10:45.378,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-14 - Payment gateway request sent: transactionId=TXN-456801
+2025-07-09 15:10:46.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-14 - Payment successful: transactionId=TXN-456801
+2025-07-09 15:10:46.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-14 - Order ORD-2025-001247 processed successfully
+2025-07-09 15:45:12.456,INFO,c.e.controller.ReportController,loc=http-nio-8080-exec-15 - Generating large report for customer CUST-789999
+2025-07-09 15:45:12.523,INFO,c.e.service.ReportService,"loc=http-nio-8080-exec-15 - Processing 150,000 customer records"
+2025-07-09 15:45:13.789,WARN,c.e.cache.ReportCache,loc=http-nio-8080-exec-15 - Cache size reached 85% capacity: 425MB/500MB
+2025-07-09 15:45:14.234,WARN,,loc=GC (Allocation Failure) - GC triggered: Eden space 85% full
+2025-07-09 15:45:14.567,WARN,,"loc=GC (Allocation Failure) - GC completed in 1.2s, freed 12MB"
+2025-07-09 15:45:15.123,ERROR,c.e.service.ReportService,loc=http-nio-8080-exec-15 - Report generation failed: java.lang.OutOfMemoryError: Java heap space
+2025-07-09 15:50:23.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-16 - Received order request: orderId=ORD-2025-001248, customerId=CUST-789026, items=1"
+2025-07-09 15:50:23.501,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-16 - Inventory check completed: all items available
+2025-07-09 15:50:23.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-16 - Order ORD-2025-001248 created successfully
+2025-07-09 15:50:23.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-16 - Payment gateway request sent: transactionId=TXN-456802
+2025-07-09 15:50:24.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-16 - Payment successful: transactionId=TXN-456802
+2025-07-09 15:50:24.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-16 - Order ORD-2025-001248 processed successfully
+2025-07-09 16:15:30.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-17 - Received order request: orderId=ORD-2025-001249, customerId=CUST-789027, items=2"
+2025-07-09 16:15:30.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-17 - Inventory check completed: all items available
+2025-07-09 16:15:30.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-17 - Order ORD-2025-001249 created successfully
+2025-07-09 16:15:30.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-17 - Payment gateway request sent: transactionId=TXN-456803
+2025-07-09 16:15:30.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-17 - Payment successful: transactionId=TXN-456803
+2025-07-09 16:15:30.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-17 - Order ORD-2025-001249 processed successfully
+2025-07-09 16:20:30.123,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-18 - Processing order ORD-2025-001250
+2025-07-09 16:20:30.134,INFO,c.e.controller.InventoryController,loc=http-nio-8080-exec-19 - Updating inventory for ITEM-A001
+2025-07-09 16:20:30.156,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-19 - Acquired lock on inventory table for ITEM-A001
+2025-07-09 16:20:30.167,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-18 - Acquired lock on orders table for customer CUST-789020
+2025-07-09 16:20:30.234,WARN,o.h.engine.jdbc.spi.SqlExceptionHelper,"loc=http-nio-8080-exec-18 - SQL Warning Code: 1205, SQLState: 40001"
+2025-07-09 16:20:30.245,ERROR,o.h.engine.jdbc.spi.SqlExceptionHelper,loc=http-nio-8080-exec-18 - Deadlock found when trying to get lock; try restarting transaction
+2025-07-09 16:20:30.256,ERROR,c.e.service.OrderService,loc=http-nio-8080-exec-18 - Transaction rolled back due to deadlock: org.springframework.dao.CannotAcquireLockException
+2025-07-09 16:35:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-20 - Received order request: orderId=ORD-2025-001251, customerId=CUST-789028, items=1"
+2025-07-09 16:35:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-20 - Inventory check completed: all items available
+2025-07-09 16:35:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-20 - Order ORD-2025-001251 created successfully
+2025-07-09 16:35:45.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-20 - Payment gateway request sent: transactionId=TXN-456804
+2025-07-09 16:35:45.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-20 - Payment successful: transactionId=TXN-456804
+2025-07-09 16:35:45.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-20 - Order ORD-2025-001251 processed successfully
+2025-07-09 17:10:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-21 - Received order request: orderId=ORD-2025-001252, customerId=CUST-789029, items=2"
+2025-07-09 17:10:12.501,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-21 - Inventory check completed: all items available
+2025-07-09 17:10:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-21 - Order ORD-2025-001252 created successfully
+2025-07-09 17:10:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-21 - Payment gateway request sent: transactionId=TXN-456805
+2025-07-09 17:10:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-21 - Payment successful: transactionId=TXN-456805
+2025-07-09 17:10:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-21 - Order ORD-2025-001252 processed successfully
+2025-07-09 17:35:22.456,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-22 - Processing payment for order ORD-2025-001253
+2025-07-09 17:35:22.489,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-22 - Sending payment request to gateway
+2025-07-09 17:35:32.567,WARN,c.e.service.PaymentService,"loc=http-nio-8080-exec-22 - Payment gateway response delayed, elapsed: 10s"
+2025-07-09 17:35:35.234,WARN,c.e.service.PaymentService,"loc=http-nio-8080-exec-22 - Payment gateway still not responding, elapsed: 12s"
+2025-07-09 17:35:37.678,ERROR,c.e.service.PaymentService,loc=http-nio-8080-exec-22 - Payment processing failed: java.net.SocketTimeoutException: Read timed out
+2025-07-09 17:45:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-23 - Received order request: orderId=ORD-2025-001254, customerId=CUST-789030, items=1"
+2025-07-09 17:45:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-23 - Inventory check completed: all items available
+2025-07-09 17:45:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-23 - Order ORD-2025-001254 created successfully
+2025-07-09 17:45:45.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-23 - Payment gateway request sent: transactionId=TXN-456806
+2025-07-09 17:45:45.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-23 - Payment successful: transactionId=TXN-456806
+2025-07-09 17:45:45.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-23 - Order ORD-2025-001254 processed successfully
+2025-07-09 18:12:45.123,INFO,c.e.controller.FileController,loc=http-nio-8080-exec-24 - Uploading file: invoice_2025_001255.pdf
+2025-07-09 18:12:45.145,INFO,c.e.service.FileService,loc=http-nio-8080-exec-24 - Available disk space: 256MB
+2025-07-09 18:12:45.234,WARN,c.e.service.FileService,loc=http-nio-8080-exec-24 - Disk space low: 131MB remaining
+2025-07-09 18:12:45.345,WARN,c.e.service.FileService,loc=http-nio-8080-exec-24 - Disk space critically low: 45MB remaining
+2025-07-09 18:12:45.567,ERROR,c.e.service.FileService,loc=http-nio-8080-exec-24 - Failed to save file: java.io.IOException: No space left on device
+2025-07-09 18:12:45.678,ERROR,c.e.controller.FileController,loc=http-nio-8080-exec-24 - File upload failed for invoice_2025_001255.pdf
+2025-07-09 18:15:23.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-25 - Received order request: orderId=ORD-2025-001256, customerId=CUST-789031, items=2"
+2025-07-09 18:15:23.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-25 - Inventory check completed: all items available
+2025-07-09 18:15:23.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-25 - Order ORD-2025-001256 created successfully
+2025-07-09 18:15:23.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-25 - Payment gateway request sent: transactionId=TXN-456807
+2025-07-09 18:15:24.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-25 - Payment successful: transactionId=TXN-456807
+2025-07-09 18:15:24.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-25 - Order ORD-2025-001256 processed successfully
+2025-07-09 18:30:45.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-26 - Received order request: orderId=ORD-2025-001257, customerId=CUST-789032, items=1"
+2025-07-09 18:30:45.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-26 - Inventory check completed: all items available
+2025-07-09 18:30:45.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-26 - Order ORD-2025-001257 created successfully
+2025-07-09 18:30:45.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-26 - Payment gateway request sent: transactionId=TXN-456808
+2025-07-09 18:30:45.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-26 - Payment successful: transactionId=TXN-456808
+2025-07-09 18:30:45.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-26 - Order ORD-2025-001257 processed successfully
+2025-07-09 18:45:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-27 - Received order request: orderId=ORD-2025-001258, customerId=CUST-789033, items=3"
+2025-07-09 18:45:12.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-27 - Inventory check completed: all items available
+2025-07-09 18:45:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-27 - Order ORD-2025-001258 created successfully
+2025-07-09 18:45:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-27 - Payment gateway request sent: transactionId=TXN-456809
+2025-07-09 18:45:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-27 - Payment successful: transactionId=TXN-456809
+2025-07-09 18:45:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-27 - Order ORD-2025-001258 processed successfully
+2025-07-09 19:10:30.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-28 - Received order request: orderId=ORD-2025-001259, customerId=CUST-789034, items=2"
+2025-07-09 19:10:30.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-28 - Inventory check completed: all items available
+2025-07-09 19:10:30.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-28 - Order ORD-2025-001259 created successfully
+2025-07-09 19:10:30.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-28 - Payment gateway request sent: transactionId=TXN-456810
+2025-07-09 19:10:30.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-28 - Payment successful: transactionId=TXN-456810
+2025-07-09 19:10:30.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-28 - Order ORD-2025-001259 processed successfully
+2025-07-09 19:25:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-29 - Received order request: orderId=ORD-2025-001260, customerId=CUST-789035, items=1"
+2025-07-09 19:25:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-29 - Inventory check completed: all items available
+2025-07-09 19:25:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-29 - Order ORD-2025-001260 created successfully
+2025-07-09 19:25:45.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-29 - Payment gateway request sent: transactionId=TXN-456811
+2025-07-09 19:25:45.567,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-29 - Payment successful: transactionId=TXN-456811
+2025-07-09 19:25:45.578,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-29 - Order ORD-2025-001260 processed successfully
+2025-07-09 19:42:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-30 - Received order request: orderId=ORD-2025-001261, customerId=CUST-789036, items=2"
+2025-07-09 19:42:12.501,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-30 - Checking inventory for 2 items
+2025-07-09 19:42:12.567,WARN,c.e.service.InventoryService,loc=http-nio-8080-exec-30 - Low stock warning: ITEM-A005 has only 3 units remaining
+2025-07-09 19:42:12.589,WARN,c.e.service.InventoryService,loc=http-nio-8080-exec-30 - Stock level critical: ITEM-A005 insufficient quantity for order
+2025-07-09 19:42:12.612,ERROR,c.e.service.InventoryService,"loc=http-nio-8080-exec-30 - Inventory check failed: Insufficient stock for item ITEM-A005, requested: 2, available: 1"
+2025-07-09 19:42:12.623,ERROR,c.e.controller.OrderController,loc=http-nio-8080-exec-30 - Order ORD-2025-001261 failed: inventory validation error
+2025-07-09 19:58:33.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-31 - Received order request: orderId=ORD-2025-001262, customerId=CUST-789037, items=1"
+2025-07-09 19:58:33.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-31 - Inventory check completed: all items available
+2025-07-09 19:58:33.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-31 - Order ORD-2025-001262 created successfully
+2025-07-09 19:58:33.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-31 - Payment gateway request sent: transactionId=TXN-456812
+2025-07-09 19:58:33.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-31 - Payment successful: transactionId=TXN-456812
+2025-07-09 19:58:33.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-31 - Order ORD-2025-001262 processed successfully
+2025-07-09 20:15:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-32 - Received order request: orderId=ORD-2025-001263, customerId=CUST-789038, items=3"
+2025-07-09 20:15:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-32 - Inventory check completed: all items available
+2025-07-09 20:15:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-32 - Order ORD-2025-001263 created successfully
+2025-07-09 20:15:45.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-32 - Payment gateway request sent: transactionId=TXN-456813
+2025-07-09 20:15:45.567,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-32 - Payment successful: transactionId=TXN-456813
+2025-07-09 20:15:45.578,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-32 - Order ORD-2025-001263 processed successfully
+2025-07-09 20:30:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-33 - Received order request: orderId=ORD-2025-001264, customerId=CUST-789039, items=2"
+2025-07-09 20:30:12.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-33 - Inventory check completed: all items available
+2025-07-09 20:30:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-33 - Order ORD-2025-001264 created successfully
+2025-07-09 20:30:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-33 - Payment gateway request sent: transactionId=TXN-456814
+2025-07-09 20:30:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-33 - Payment successful: transactionId=TXN-456814
+2025-07-09 20:30:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-33 - Order ORD-2025-001264 processed successfully
+2025-07-09 20:45:30.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-34 - Received order request: orderId=ORD-2025-001265, customerId=CUST-789040, items=1"
+2025-07-09 20:45:30.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-34 - Inventory check completed: all items available
+2025-07-09 20:45:30.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-34 - Order ORD-2025-001265 created successfully
+2025-07-09 20:45:30.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-34 - Payment gateway request sent: transactionId=TXN-456815
+2025-07-09 20:45:30.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-34 - Payment successful: transactionId=TXN-456815
+2025-07-09 20:45:30.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-34 - Order ORD-2025-001265 processed successfully
+2025-07-09 21:02:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-35 - Received order request: orderId=ORD-2025-001266, customerId=CUST-789041, items=2"
+2025-07-09 21:02:45.145,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-35 - Starting order processing
+2025-07-09 21:02:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-35 - Inventory check in progress
+2025-07-09 21:02:45.234,WARN,com.zaxxer.hikari.pool.HikariPool,loc=HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m45s123ms)
+2025-07-09 21:02:45.267,WARN,com.zaxxer.hikari.pool.HikariPool,"loc=HikariPool-1 housekeeper - HikariPool-1 - Pool stats (total=25, active=24, idle=1, waiting=12)"
+2025-07-09 21:02:45.289,WARN,c.e.repository.OrderRepository,loc=http-nio-8080-exec-35 - Database connection pool near exhaustion: 24/25 active connections
+2025-07-09 21:03:15.345,ERROR,com.zaxxer.hikari.pool.HikariPool,"loc=http-nio-8080-exec-35 - HikariPool-1 - Connection is not available, request timed out after 30000ms"
+2025-07-09 21:03:15.367,ERROR,c.e.service.OrderService,"loc=http-nio-8080-exec-35 - Failed to process order ORD-2025-001266: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms"
+2025-07-09 21:15:23.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-36 - Received order request: orderId=ORD-2025-001267, customerId=CUST-789042, items=1"
+2025-07-09 21:15:23.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-36 - Inventory check completed: all items available
+2025-07-09 21:15:23.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-36 - Order ORD-2025-001267 created successfully
+2025-07-09 21:15:23.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-36 - Payment gateway request sent: transactionId=TXN-456816
+2025-07-09 21:15:24.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-36 - Payment successful: transactionId=TXN-456816
+2025-07-09 21:15:24.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-36 - Order ORD-2025-001267 processed successfully
+2025-07-09 21:30:45.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-37 - Received order request: orderId=ORD-2025-001268, customerId=CUST-789043, items=2"
+2025-07-09 21:30:45.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-37 - Inventory check completed: all items available
+2025-07-09 21:30:45.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-37 - Order ORD-2025-001268 created successfully
+2025-07-09 21:30:45.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-37 - Payment gateway request sent: transactionId=TXN-456817
+2025-07-09 21:30:45.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-37 - Payment successful: transactionId=TXN-456817
+2025-07-09 21:30:45.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-37 - Order ORD-2025-001268 processed successfully
+2025-07-09 21:45:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-38 - Received order request: orderId=ORD-2025-001269, customerId=CUST-789044, items=3"
+2025-07-09 21:45:12.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-38 - Inventory check completed: all items available
+2025-07-09 21:45:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-38 - Order ORD-2025-001269 created successfully
+2025-07-09 21:45:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-38 - Payment gateway request sent: transactionId=TXN-456818
+2025-07-09 21:45:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-38 - Payment successful: transactionId=TXN-456818
+2025-07-09 21:45:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-38 - Order ORD-2025-001269 processed successfully
+2025-07-09 22:00:30.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-39 - Received order request: orderId=ORD-2025-001270, customerId=CUST-789045, items=1"
+2025-07-09 22:00:30.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-39 - Inventory check completed: all items available
+2025-07-09 22:00:30.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-39 - Order ORD-2025-001270 created successfully
+2025-07-09 22:00:30.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-39 - Payment gateway request sent: transactionId=TXN-456819
+2025-07-09 22:00:30.567,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-39 - Payment successful: transactionId=TXN-456819
+2025-07-09 22:00:30.578,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-39 - Order ORD-2025-001270 processed successfully
+2025-07-09 22:15:45.123,INFO,c.e.controller.ReportController,loc=http-nio-8080-exec-40 - Generating daily sales report for date: 2025-07-09
+2025-07-09 22:15:45.178,INFO,c.e.service.ReportService,"loc=http-nio-8080-exec-40 - Processing 75,000 order records"
+2025-07-09 22:15:46.234,WARN,c.e.cache.ReportCache,loc=http-nio-8080-exec-40 - Cache size reached 90% capacity: 450MB/500MB
+2025-07-09 22:15:46.789,WARN,,loc=GC (Allocation Failure) - GC triggered: Eden space 88% full
+2025-07-09 22:15:47.123,WARN,,"loc=GC (Allocation Failure) - GC completed in 1.5s, freed 8MB"
+2025-07-09 22:15:47.456,ERROR,c.e.service.ReportService,loc=http-nio-8080-exec-40 - Report generation failed: java.lang.OutOfMemoryError: Java heap space
+2025-07-09 22:30:12.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-41 - Received order request: orderId=ORD-2025-001271, customerId=CUST-789046, items=2"
+2025-07-09 22:30:12.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-41 - Inventory check completed: all items available
+2025-07-09 22:30:12.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-41 - Order ORD-2025-001271 created successfully
+2025-07-09 22:30:12.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-41 - Payment gateway request sent: transactionId=TXN-456820
+2025-07-09 22:30:12.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-41 - Payment successful: transactionId=TXN-456820
+2025-07-09 22:30:12.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-41 - Order ORD-2025-001271 processed successfully
+2025-07-09 22:45:30.123,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-42 - Processing order ORD-2025-001272
+2025-07-09 22:45:30.145,INFO,c.e.controller.InventoryController,loc=http-nio-8080-exec-43 - Updating inventory for ITEM-C012
+2025-07-09 22:45:30.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-43 - Acquired lock on inventory table for ITEM-C012
+2025-07-09 22:45:30.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-42 - Acquired lock on orders table for customer CUST-789047
+2025-07-09 22:45:30.289,WARN,o.h.engine.jdbc.spi.SqlExceptionHelper,"loc=http-nio-8080-exec-42 - SQL Warning Code: 1205, SQLState: 40001"
+2025-07-09 22:45:30.312,ERROR,o.h.engine.jdbc.spi.SqlExceptionHelper,loc=http-nio-8080-exec-42 - Deadlock found when trying to get lock; try restarting transaction
+2025-07-09 22:45:30.334,ERROR,c.e.service.OrderService,loc=http-nio-8080-exec-42 - Transaction rolled back due to deadlock: org.springframework.dao.CannotAcquireLockException
+2025-07-09 23:00:45.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-44 - Received order request: orderId=ORD-2025-001273, customerId=CUST-789048, items=1"
+2025-07-09 23:00:45.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-44 - Inventory check completed: all items available
+2025-07-09 23:00:45.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-44 - Order ORD-2025-001273 created successfully
+2025-07-09 23:00:45.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-44 - Payment gateway request sent: transactionId=TXN-456821
+2025-07-09 23:00:45.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-44 - Payment successful: transactionId=TXN-456821
+2025-07-09 23:00:45.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-44 - Order ORD-2025-001273 processed successfully
+2025-07-09 23:15:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-45 - Received order request: orderId=ORD-2025-001274, customerId=CUST-789049, items=3"
+2025-07-09 23:15:12.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-45 - Inventory check completed: all items available
+2025-07-09 23:15:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-45 - Order ORD-2025-001274 created successfully
+2025-07-09 23:15:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-45 - Payment gateway request sent: transactionId=TXN-456822
+2025-07-09 23:15:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-45 - Payment successful: transactionId=TXN-456822
+2025-07-09 23:15:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-45 - Order ORD-2025-001274 processed successfully
+2025-07-09 23:30:30.234,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-46 - Processing payment for order ORD-2025-001275
+2025-07-09 23:30:30.289,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-46 - Sending payment request to gateway
+2025-07-09 23:30:40.345,WARN,c.e.service.PaymentService,"loc=http-nio-8080-exec-46 - Payment gateway response delayed, elapsed: 10s"
+2025-07-09 23:30:45.567,WARN,c.e.service.PaymentService,"loc=http-nio-8080-exec-46 - Payment gateway still not responding, elapsed: 15s"
+2025-07-09 23:30:50.789,ERROR,c.e.service.PaymentService,loc=http-nio-8080-exec-46 - Payment processing failed: java.net.SocketTimeoutException: Read timed out
+2025-07-09 23:45:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-47 - Received order request: orderId=ORD-2025-001276, customerId=CUST-789050, items=2"
+2025-07-09 23:45:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-47 - Inventory check completed: all items available
+2025-07-09 23:45:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-47 - Order ORD-2025-001276 created successfully
+2025-07-09 23:45:45.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-47 - Payment gateway request sent: transactionId=TXN-456823
+2025-07-09 23:45:45.567,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-47 - Payment successful: transactionId=TXN-456823
+2025-07-09 23:45:45.578,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-47 - Order ORD-2025-001276 processed successfully
+2025-07-10 00:00:15.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-48 - Received order request: orderId=ORD-2025-001277, customerId=CUST-789051, items=1"
+2025-07-10 00:00:15.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-48 - Inventory check completed: all items available
+2025-07-10 00:00:15.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-48 - Order ORD-2025-001277 created successfully
+2025-07-10 00:00:15.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-48 - Payment gateway request sent: transactionId=TXN-456824
+2025-07-10 00:00:15.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-48 - Payment successful: transactionId=TXN-456824
+2025-07-10 00:00:15.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-48 - Order ORD-2025-001277 processed successfully
+2025-07-10 00:15:30.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-49 - Received order request: orderId=ORD-2025-001278, customerId=CUST-789052, items=2"
+2025-07-10 00:15:30.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-49 - Inventory check completed: all items available
+2025-07-10 00:15:30.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-49 - Order ORD-2025-001278 created successfully
+2025-07-10 00:15:30.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-49 - Payment gateway request sent: transactionId=TXN-456825
+2025-07-10 00:15:30.567,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-49 - Payment successful: transactionId=TXN-456825
+2025-07-10 00:15:30.578,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-49 - Order ORD-2025-001278 processed successfully
+2025-07-10 00:30:45.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-50 - Received order request: orderId=ORD-2025-001279, customerId=CUST-789053, items=3"
+2025-07-10 00:30:45.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-50 - Inventory check completed: all items available
+2025-07-10 00:30:45.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-50 - Order ORD-2025-001279 created successfully
+2025-07-10 00:30:45.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-50 - Payment gateway request sent: transactionId=TXN-456826
+2025-07-10 00:30:45.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-50 - Payment successful: transactionId=TXN-456826
+2025-07-10 00:30:45.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-50 - Order ORD-2025-001279 processed successfully
+2025-07-10 00:45:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-51 - Received order request: orderId=ORD-2025-001280, customerId=CUST-789054, items=1"
+2025-07-10 00:45:12.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-51 - Inventory check completed: all items available
+2025-07-10 00:45:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-51 - Order ORD-2025-001280 created successfully
+2025-07-10 00:45:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-51 - Payment gateway request sent: transactionId=TXN-456827
+2025-07-10 00:45:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-51 - Payment successful: transactionId=TXN-456827
+2025-07-10 00:45:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-51 - Order ORD-2025-001280 processed successfully
+2025-07-10 01:00:30.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-52 - Received order request: orderId=ORD-2025-001281, customerId=CUST-789055, items=2"
+2025-07-10 01:00:30.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-52 - Inventory check completed: all items available
+2025-07-10 01:00:30.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-52 - Order ORD-2025-001281 created successfully
+2025-07-10 01:00:30.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-52 - Payment gateway request sent: transactionId=TXN-456828
+2025-07-10 01:00:30.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-52 - Payment successful: transactionId=TXN-456828
+2025-07-10 01:00:30.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-52 - Order ORD-2025-001281 processed successfully
+2025-07-10 01:15:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-53 - Received order request: orderId=ORD-2025-001282, customerId=CUST-789056, items=4"
+2025-07-10 01:15:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-53 - Checking inventory for 4 items
+2025-07-10 01:15:45.234,WARN,c.e.service.InventoryService,loc=http-nio-8080-exec-53 - Low stock warning: ITEM-B012 has only 2 units remaining
+2025-07-10 01:15:45.256,WARN,c.e.service.InventoryService,loc=http-nio-8080-exec-53 - Stock level critical: ITEM-B012 insufficient quantity for order
+2025-07-10 01:15:45.278,ERROR,c.e.service.InventoryService,"loc=http-nio-8080-exec-53 - Inventory check failed: Insufficient stock for item ITEM-B012, requested: 4, available: 2"
+2025-07-10 01:15:45.289,ERROR,c.e.controller.OrderController,loc=http-nio-8080-exec-53 - Order ORD-2025-001282 failed: inventory validation error
+2025-07-10 01:30:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-54 - Received order request: orderId=ORD-2025-001283, customerId=CUST-789057, items=1"
+2025-07-10 01:30:12.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-54 - Inventory check completed: all items available
+2025-07-10 01:30:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-54 - Order ORD-2025-001283 created successfully
+2025-07-10 01:30:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-54 - Payment gateway request sent: transactionId=TXN-456829
+2025-07-10 01:30:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-54 - Payment successful: transactionId=TXN-456829
+2025-07-10 01:30:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-54 - Order ORD-2025-001283 processed successfully
+2025-07-10 01:45:30.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-55 - Received order request: orderId=ORD-2025-001284, customerId=CUST-789058, items=2"
+2025-07-10 01:45:30.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-55 - Inventory check completed: all items available
+2025-07-10 01:45:30.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-55 - Order ORD-2025-001284 created successfully
+2025-07-10 01:45:30.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-55 - Payment gateway request sent: transactionId=TXN-456830
+2025-07-10 01:45:30.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-55 - Payment successful: transactionId=TXN-456830
+2025-07-10 01:45:30.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-55 - Order ORD-2025-001284 processed successfully
+2025-07-10 02:00:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-56 - Received order request: orderId=ORD-2025-001285, customerId=CUST-789059, items=3"
+2025-07-10 02:00:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-56 - Inventory check completed: all items available
+2025-07-10 02:00:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-56 - Order ORD-2025-001285 created successfully
+2025-07-10 02:00:45.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-56 - Payment gateway request sent: transactionId=TXN-456831
+2025-07-10 02:00:45.567,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-56 - Payment successful: transactionId=TXN-456831
+2025-07-10 02:00:45.578,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-56 - Order ORD-2025-001285 processed successfully
+2025-07-10 02:15:12.456,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-57 - Processing payment for order ORD-2025-001286
+2025-07-10 02:15:12.512,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-57 - Sending payment request to gateway
+2025-07-10 02:15:17.567,WARN,c.e.service.PaymentService,"loc=http-nio-8080-exec-57 - Payment gateway response delayed, elapsed: 5s"
+2025-07-10 02:15:22.789,WARN,c.e.service.PaymentService,"loc=http-nio-8080-exec-57 - Payment gateway still not responding, elapsed: 10s"
+2025-07-10 02:15:27.123,ERROR,c.e.service.PaymentService,loc=http-nio-8080-exec-57 - Payment processing failed: java.net.SocketTimeoutException: Read timed out
+2025-07-10 02:30:30.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-58 - Received order request: orderId=ORD-2025-001287, customerId=CUST-789060, items=1"
+2025-07-10 02:30:30.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-58 - Inventory check completed: all items available
+2025-07-10 02:30:30.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-58 - Order ORD-2025-001287 created successfully
+2025-07-10 02:30:30.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-58 - Payment gateway request sent: transactionId=TXN-456832
+2025-07-10 02:30:30.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-58 - Payment successful: transactionId=TXN-456832
+2025-07-10 02:30:30.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-58 - Order ORD-2025-001287 processed successfully
+2025-07-10 02:45:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-59 - Received order request: orderId=ORD-2025-001288, customerId=CUST-789061, items=2"
+2025-07-10 02:45:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-59 - Inventory check completed: all items available
+2025-07-10 02:45:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-59 - Order ORD-2025-001288 created successfully
+2025-07-10 02:45:45.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-59 - Payment gateway request sent: transactionId=TXN-456833
+2025-07-10 02:45:45.567,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-59 - Payment successful: transactionId=TXN-456833
+2025-07-10 02:45:45.578,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-59 - Order ORD-2025-001288 processed successfully
+2025-07-10 03:00:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-60 - Received order request: orderId=ORD-2025-001289, customerId=CUST-789062, items=5"
+2025-07-10 03:00:12.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-60 - Checking inventory for 5 items
+2025-07-10 03:00:12.567,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-60 - Inventory check completed: all items available
+2025-07-10 03:00:12.589,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-60 - Order ORD-2025-001289 created successfully
+2025-07-10 03:00:12.612,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-60 - Payment gateway request sent: transactionId=TXN-456834
+2025-07-10 03:00:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-60 - Payment successful: transactionId=TXN-456834
+2025-07-10 03:00:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-60 - Order ORD-2025-001289 processed successfully
+2025-07-10 03:15:30.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-61 - Received order request: orderId=ORD-2025-001290, customerId=CUST-789063, items=1"
+2025-07-10 03:15:30.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-61 - Inventory check completed: all items available
+2025-07-10 03:15:30.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-61 - Order ORD-2025-001290 created successfully
+2025-07-10 03:15:30.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-61 - Payment gateway request sent: transactionId=TXN-456835
+2025-07-10 03:15:30.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-61 - Payment successful: transactionId=TXN-456835
+2025-07-10 03:15:30.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-61 - Order ORD-2025-001290 processed successfully
+2025-07-10 03:30:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-62 - Received order request: orderId=ORD-2025-001291, customerId=CUST-789064, items=2"
+2025-07-10 03:30:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-62 - Inventory check completed: all items available
+2025-07-10 03:30:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-62 - Order ORD-2025-001291 created successfully
+2025-07-10 03:30:45.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-62 - Payment gateway request sent: transactionId=TXN-456836
+2025-07-10 03:30:45.567,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-62 - Payment successful: transactionId=TXN-456836
+2025-07-10 03:30:45.578,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-62 - Order ORD-2025-001291 processed successfully
+2025-07-10 03:45:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-63 - Received order request: orderId=ORD-2025-001292, customerId=CUST-789065, items=3"
+2025-07-10 03:45:12.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-63 - Inventory check completed: all items available
+2025-07-10 03:45:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-63 - Order ORD-2025-001292 created successfully
+2025-07-10 03:45:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-63 - Payment gateway request sent: transactionId=TXN-456837
+2025-07-10 03:45:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-63 - Payment successful: transactionId=TXN-456837
+2025-07-10 03:45:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-63 - Order ORD-2025-001292 processed successfully
+2025-07-10 04:00:30.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-64 - Received order request: orderId=ORD-2025-001293, customerId=CUST-789066, items=1"
+2025-07-10 04:00:30.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-64 - Inventory check completed: all items available
+2025-07-10 04:00:30.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-64 - Order ORD-2025-001293 created successfully
+2025-07-10 04:00:30.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-64 - Payment gateway request sent: transactionId=TXN-456838
+2025-07-10 04:00:30.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-64 - Payment successful: transactionId=TXN-456838
+2025-07-10 04:00:30.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-64 - Order ORD-2025-001293 processed successfully
+2025-07-10 04:15:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-65 - Received order request: orderId=ORD-2025-001294, customerId=CUST-789067, items=2"
+2025-07-10 04:15:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-65 - Inventory check completed: all items available
+2025-07-10 04:15:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-65 - Order ORD-2025-001294 created successfully
+2025-07-10 04:15:45.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-65 - Payment gateway request sent: transactionId=TXN-456839
+2025-07-10 04:15:45.567,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-65 - Payment successful: transactionId=TXN-456839
+2025-07-10 04:15:45.578,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-65 - Order ORD-2025-001294 processed successfully
+2025-07-10 04:30:12.456,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-66 - Processing order ORD-2025-001295
+2025-07-10 04:30:12.478,INFO,c.e.controller.InventoryController,loc=http-nio-8080-exec-67 - Updating inventory for ITEM-D007
+2025-07-10 04:30:12.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-67 - Acquired lock on inventory table for ITEM-D007
+2025-07-10 04:30:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-66 - Acquired lock on orders table for customer CUST-789068
+2025-07-10 04:30:12.589,WARN,o.h.engine.jdbc.spi.SqlExceptionHelper,"loc=http-nio-8080-exec-66 - SQL Warning Code: 1205, SQLState: 40001"
+2025-07-10 04:30:12.612,ERROR,o.h.engine.jdbc.spi.SqlExceptionHelper,loc=http-nio-8080-exec-66 - Deadlock found when trying to get lock; try restarting transaction
+2025-07-10 04:30:12.634,ERROR,c.e.service.OrderService,loc=http-nio-8080-exec-66 - Transaction rolled back due to deadlock: org.springframework.dao.CannotAcquireLockException
+2025-07-10 04:45:30.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-68 - Received order request: orderId=ORD-2025-001296, customerId=CUST-789069, items=4"
+2025-07-10 04:45:30.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-68 - Checking inventory for 4 items
+2025-07-10 04:45:30.345,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-68 - Inventory check completed: all items available
+2025-07-10 04:45:30.367,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-68 - Order ORD-2025-001296 created successfully
+2025-07-10 04:45:30.389,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-68 - Payment gateway request sent: transactionId=TXN-456840
+2025-07-10 04:45:30.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-68 - Payment successful: transactionId=TXN-456840
+2025-07-10 04:45:30.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-68 - Order ORD-2025-001296 processed successfully
+2025-07-10 05:00:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-69 - Received order request: orderId=ORD-2025-001297, customerId=CUST-789070, items=1"
+2025-07-10 05:00:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-69 - Inventory check completed: all items available
+2025-07-10 05:00:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-69 - Order ORD-2025-001297 created successfully
+2025-07-10 05:00:45.256,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-69 - Payment gateway request sent: transactionId=TXN-456841
+2025-07-10 05:00:45.567,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-69 - Payment successful: transactionId=TXN-456841
+2025-07-10 05:00:45.578,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-69 - Order ORD-2025-001297 processed successfully
+2025-07-10 05:15:12.456,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-70 - Received order request: orderId=ORD-2025-001298, customerId=CUST-789071, items=3"
+2025-07-10 05:15:12.512,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-70 - Inventory check completed: all items available
+2025-07-10 05:15:12.567,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-70 - Order ORD-2025-001298 created successfully
+2025-07-10 05:15:12.589,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-70 - Payment gateway request sent: transactionId=TXN-456842
+2025-07-10 05:15:13.123,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-70 - Payment successful: transactionId=TXN-456842
+2025-07-10 05:15:13.134,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-70 - Order ORD-2025-001298 processed successfully
+2025-07-10 05:30:30.234,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-71 - Received order request: orderId=ORD-2025-001299, customerId=CUST-789072, items=2"
+2025-07-10 05:30:30.289,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-71 - Inventory check completed: all items available
+2025-07-10 05:30:30.345,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-71 - Order ORD-2025-001299 created successfully
+2025-07-10 05:30:30.367,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-71 - Payment gateway request sent: transactionId=TXN-456843
+2025-07-10 05:30:30.789,INFO,c.e.service.PaymentService,loc=http-nio-8080-exec-71 - Payment successful: transactionId=TXN-456843
+2025-07-10 05:30:30.801,INFO,c.e.controller.OrderController,loc=http-nio-8080-exec-71 - Order ORD-2025-001299 processed successfully
+2025-07-10 05:45:45.123,INFO,c.e.controller.OrderController,"loc=http-nio-8080-exec-72 - Received order request: orderId=ORD-2025-001300, customerId=CUST-789073, items=1"
+2025-07-10 05:45:45.178,INFO,c.e.service.InventoryService,loc=http-nio-8080-exec-72 - Inventory check completed: all items available
+2025-07-10 05:45:45.234,INFO,c.e.service.OrderService,loc=http-nio-8080-exec-72 - Order ORD-2025-001300 created successfully
