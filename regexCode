@@ -1,60 +1,54 @@
-import pandas as pd
-import re
 from drain3 import TemplateMiner
 from drain3.template_miner_config import TemplateMinerConfig
 from drain3.persistence_handler import PersistenceHandler
+import pandas as pd
+import re
 import json
-import os
 
-# File paths
+# Initialize config manually
+config = TemplateMinerConfig()
+config.set("drain_depth", 5)
+config.set("max_children", 100)
+config.set("fixed_depth", 4)
+config.set("extra_delimiters", "=:,")
+config.set("sim_th", 0.5)
+
+# Optionally use persistence
+persistence_handler = PersistenceHandler("drain3_state.json")
+template_miner = TemplateMiner(config=config, persistence_handler=persistence_handler)
+
+# Input and output files
 INPUT_FILE = "logs.csv"
 PARSED_OUTPUT = "parsed_logs.csv"
 TEMPLATES_OUTPUT = "templates.csv"
 
-# Load config and initialize Drain3
-config = TemplateMinerConfig()
-config.load_default_config()
-config.set("feature_extractor", "drain3")
-config.set("drain_depth", 5)
-config.set("max_children", 100)
-config.set("fixed_depth", 4)
-config.set("extra_delimiters", "=_:,")
-persistence_handler = PersistenceHandler("drain3_state.json")
-template_miner = TemplateMiner(config=config, persistence_handler=persistence_handler)
-
-# Read CSV file
+# Read logs
 df = pd.read_csv(INPUT_FILE)
 
-# Output list
 parsed_rows = []
 
-# Process each row
 for line_id, row in df.iterrows():
     content = str(row['content'])
     result = template_miner.add_log_message(content)
-    
-    if not result:
-        continue  # Skip if nothing parsed
 
-    template = result["template_mined"]
-    event_id = result["cluster_id"]
-    parameter_list = result["params"]
-    
+    if not result:
+        continue
+
     parsed_rows.append({
         "line_id": line_id,
         "time": row['time'],
         "level": row['level'],
         "content": content,
-        "event_id": event_id,
-        "event_template": template,
-        "parameter_list": json.dumps(parameter_list)
+        "event_id": result["cluster_id"],
+        "event_template": result["template_mined"],
+        "parameter_list": json.dumps(result["params"])
     })
 
 # Save parsed logs
 parsed_df = pd.DataFrame(parsed_rows)
 parsed_df.to_csv(PARSED_OUTPUT, index=False)
 
-# Save template map
+# Save templates
 template_records = [
     {
         "event_id": cluster.cluster_id,
