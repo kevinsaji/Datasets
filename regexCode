@@ -1,67 +1,9 @@
-import pandas as pd
-import re
-import csv
-import os
-from drain3 import TemplateMiner
-from drain3.template_miner_config import TemplateMinerConfig
-
-# ✅ Rex Patterns List (Add Your Patterns Here)
-rex_patterns = [
-    r'User \w+',              # Example: Anonymize usernames
-    r'\d+\.\d+\.\d+\.\d+',    # Example: Anonymize IP addresses
-]
-
-def apply_rex(log_line, rex_list):
-    """Apply multiple regex patterns on a log line."""
-    for pattern in rex_list:
-        log_line = re.sub(pattern, "<*>", log_line)
-    return log_line
-
-# ✅ Load Logs from CSV
-csv_file = "logs.csv"
-df = pd.read_csv(csv_file)
-log_column = "log"
-logs = df[log_column].astype(str).tolist()
-
-# ✅ Initialize Drain3
-config = TemplateMinerConfig()
-config.load_default_config()
-miner = TemplateMiner(config=config)
-
-state_file = "drain3_state.json"
-
-if os.path.exists(state_file):
-    miner.load_state(state_file)
-    print("Loaded Drain3 state.")
-else:
-    print("Starting fresh Drain3 session.")
-
-# ✅ Output Files (Drain-style)
-structured_log_file = "structuredlog.csv"
-template_file = "logTemplates.txt"
-
-# ✅ Open CSV for writing structured logs
-with open(structured_log_file, "w", newline='') as f_out:
-    csv_writer = csv.writer(f_out)
-    # Header similar to Drain's structuredlog.csv
-    csv_writer.writerow(["LineId", "Content", "EventId", "Template"])
-
-    for idx, log_line in enumerate(logs):
-        processed_log = apply_rex(log_line, rex_patterns)
-        result = miner.add_log_message(processed_log)
-        event_id = result['cluster_id'] if result['cluster_id'] else "None"
-        template = result['template_mined'] if result['template_mined'] else "None"
-        csv_writer.writerow([idx + 1, log_line, event_id, template])
-
-# ✅ Save State
-miner.save_state(state_file)
-print("Saved Drain3 state to", state_file)
-
-# ✅ Save Templates (Drain-like format)
-with open(template_file, "w") as f_out:
-    for cluster in miner.drain.clusters:
-        f_out.write(f"{cluster.cluster_id},{cluster.get_template()}\n")
-
-print(f"Structured logs saved to {structured_log_file}")
-print(f"Templates saved to {template_file}")
-
+2025-07-11 15:47:33.123,INFO,c.e.service.AuthService,"loc=http-nio-8080-exec-204 - User authentication successful: userId=USER-5671, sessionId=SESS-X3P9Q8"
+2025-07-11 15:47:33.267,INFO,c.e.service.CartService,"loc=http-nio-8080-exec-204 - Cart validation completed: userId=USER-5671, totalItems=7, cartValue=2849.93"
+2025-07-11 15:47:33.445,INFO,c.e.service.InventoryService,"loc=http-nio-8080-exec-204 - Inventory check passed: productId=PROD-4456, availableQty=25, requestedQty=7"
+2025-07-11 15:47:33.578,INFO,c.e.service.PricingService,"loc=http-nio-8080-exec-204 - Price calculation completed: basePrice=2849.93, discount=284.99, finalPrice=2564.94"
+2025-07-11 15:47:33.701,INFO,c.e.service.PaymentService,"loc=http-nio-8080-exec-204 - Payment gateway connection established: gateway=StripeConnect-V3, timeout=25000ms"
+2025-07-11 15:47:33.834,INFO,c.e.service.PaymentService,"loc=http-nio-8080-exec-204 - Payment authorization requested: amount=2564.94, currency=USD, cardType=VISA"
+2025-07-11 15:47:34.067,INFO,c.e.service.FraudDetectionService,"loc=http-nio-8080-exec-204 - Fraud screening completed: riskScore=0.23, threshold=0.8, status=APPROVED"
+2025-07-11 15:47:34.234,ERROR,c.e.service.PaymentService,"loc=http-nio-8080-exec-204 - Payment processing failed: orderId=ORD-2025-004782, error=OutOfMemoryError during transaction processing"
+2025-07-11 15:47:34.356,INFO,c.e.service.OrderService,"loc=http-nio-8080-exec-204 - Order creation failed: orderId=ORD-2025-004782, status=PROCESSING_ERROR"
